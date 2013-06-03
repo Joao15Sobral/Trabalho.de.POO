@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=
+comment0.target=GT()
+comment1.params=marca\ modelo\ cilindrada\ potencia\ p1\ p2
+comment1.target=GT(java.lang.String,\ java.lang.String,\ int,\ int,\ Piloto,\ Piloto)
+comment2.params=g
+comment2.target=GT(GT)
+comment3.params=
+comment3.target=int\ calFiabilidade()
+comment4.params=obj
+comment4.target=boolean\ equals(java.lang.Object)
+comment5.params=
+comment5.target=java.lang.String\ toString()
+comment6.params=
+comment6.target=GT\ clone()
+comment7.params=
+comment7.target=GT\ geraGT()
+numComments=8

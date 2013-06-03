@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=
+comment0.target=PC2()
+comment1.params=marca\ modelo\ cilindrada\ potencia\ p1\ p2
+comment1.target=PC2(java.lang.String,\ java.lang.String,\ int,\ int,\ Piloto,\ Piloto)
+comment2.params=c
+comment2.target=PC2(PC2)
+comment3.params=
+comment3.target=int\ getFiabilidade()
+comment4.params=fiabilidade
+comment4.target=void\ setFiabilidade(int)
+comment5.params=
+comment5.target=int\ calFiabilidade()
+comment6.params=obj
+comment6.target=boolean\ equals(java.lang.Object)
+comment7.params=
+comment7.target=java.lang.String\ toString()
+comment8.params=
+comment8.target=PC2\ clone()
+comment9.params=
+comment9.target=PC2\ geraPC2()
+numComments=10

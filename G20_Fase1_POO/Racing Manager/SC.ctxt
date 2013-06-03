@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=
+comment0.target=SC()
+comment1.params=marca\ modelo\ cilindrada\ potencia\ p1\ p2
+comment1.target=SC(java.lang.String,\ java.lang.String,\ int,\ int,\ Piloto,\ Piloto)
+comment2.params=c
+comment2.target=SC(SC)
+comment3.params=
+comment3.target=double\ calFiabilidade()
+comment4.params=obj
+comment4.target=boolean\ equals(java.lang.Object)
+comment5.params=
+comment5.target=java.lang.String\ toString()
+comment6.params=
+comment6.target=SC\ clone()
+comment7.params=
+comment7.target=SC\ geraSC()
+numComments=8
