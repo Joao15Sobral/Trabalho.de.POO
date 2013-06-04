@@ -47,7 +47,7 @@ public boolean equals(Object obj) {
 public String toString() {
       
     
-    StringBuilder s = new StringBuilder("----PC2----\n");
+    StringBuilder s = new StringBuilder("-----PC2-----\n");
     
     s.append(" Marca: " + this.getMarca()+"\n");
     s.append(" Modelo:" + this.getModelo()+"\n");

@@ -36,7 +36,7 @@ public boolean equals(Object obj) {
 
 public String toString() {
     
-    StringBuilder s = new StringBuilder("----PC1----\n");
+    StringBuilder s = new StringBuilder("-----PC1-----\n");
     
     s.append(" Marca: " + this.getMarca()+"\n");
     s.append(" Modelo:" + this.getModelo()+"\n");
@@ -46,10 +46,26 @@ public String toString() {
     s.append(" Piloto 2: " + this.getP2() +"\n");
     return s.toString();
     }
-   
+
+public double tempoProximaVolta(Circuitos m, boolean chuva, Piloto p1){
+Random a = new Random();
+int res = 0;
+ if(a.nextInt(this.fiabilidade)==0)//testa fiabilidade
+    res=1;//valor por omissao caso o carro não conclua a volta
+ if(p1.getQualidade()>8 && this.getPotencia()){//testa qualidade piloto
+  res=1;} 
+ else{ 
+  res=1;
+  }
+ if(this.getPotencia())//testa potencia do carro 
+ if(chuva)//testa Chuva
+ res=1;
+}    
+    
 public PC1 clone() { 
     return new PC1(this); 
 }
+
 public PC1 geraPC1(){
  Random a = new Random();
  int pc1 = a.nextInt(4);

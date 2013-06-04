@@ -1,48 +1,39 @@
+import java.util.HashSet;
 
-/**
- * Write a description of class Campeonato here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Campeonato
 {
     // instance variables - replace the example below with your own
-    private Corrida[]corrida;
-    private int ncorridas;
+    private HashSet<Corrida> corrida;
+   
 
  public Campeonato(){
- this.corrida=new Corrida [ncorridas];
- this.ncorridas=0;
+ this.corrida=new HashSet<Corrida>();
  }
  
- public Campeonato (Corrida[]corrida, int ncorrida){
- this.corrida=corrida;
- this.ncorridas=ncorrida;
+ public Campeonato (HashSet<Corrida> corrida){
+ this.corrida = new HashSet<Corrida>();
+ for(Corrida c: corrida){
+  this.corrida.add(c.clone());  
+  }
  }
  
  public Campeonato(Campeonato m){
  this.corrida=m.getCorrida();
- this.ncorridas=m.getNcorridas();
- }
+}
  
- public Corrida[]getCorrida(){
- return this.corrida;   
- }
+ public HashSet<Corrida> getCorrida(){
+HashSet<Corrida> aux = new HashSet<Corrida>();
+for (Corrida c : corrida){
+ aux.add(c.clone());
+} 		
+return aux;
+}
  
- public int getNcorridas(){
- return this.ncorridas;
- }
- 
- public void setCorrida(Corrida[]corrida){
+public void setCorrida(Corrida[]corrida){
  this.corrida=corrida;   
  } 
  
- public void setNcorrida(int ncorrida){
- this.ncorridas=ncorrida;   
- }
- 
- public boolean equals(Object o) {
+public boolean equals(Object o) {
     if (this==o) return true;
     if((o==null)||(this.getClass() != o.getClass()))
      return false;
@@ -56,13 +47,12 @@ public class Campeonato
     
 //toString
 public String toString() {
-    StringBuilder s = new StringBuilder();
-    int i = 0;
-    while(i< this.getNcorridas()) {
-      s.append(" Corrida: " + this.corrida[i].toString()+"\n");
-    i++;}
+    StringBuilder s = new StringBuilder("-----Campeonato-----\n");
     
-    return s.toString();
+    for (Corrida c : this.getCorrida())
+			s.append(c.toString());
+
+		return s.toString();
     }
 //clone
    

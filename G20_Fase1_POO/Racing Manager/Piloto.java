@@ -1,22 +1,5 @@
 import java.util.Random;
 
-/**
-Pilotos
-A informação relativa a cada piloto deve guardar os seguintes dados:
- nome
- nacionalidade
- palmarés (deve indicar o número de provas já vencidas)
- qualidade geral do piloto (de 1 a 10, em que 1 é bastante fraco e 10
-muito bom)
- capacidade de condução à chuva, que é um factor de incremento da
-qualidade do piloto nos casos em que a corrida se realize com piso
-molhado
-Cada equipa é constituída por 2 pilotos, sendo que quando a corrida se
-inicia deve ser determinado o número de voltas que cada piloto vai fazer.
-Uma aproximação é que cada um faça 50% das voltas, mas poderão ter um
-método que determine de forma dinâmica este valor. Note-se que se considera
-que o tempo de paragem para mudar de piloto é sempre função do circuito.
- */
 public class Piloto
 {
     // instance variables - replace the example below with your own
@@ -102,7 +85,7 @@ public boolean equals(Object o) {
     
 //toString
 public String toString() {
-    StringBuilder s = new StringBuilder("Piloto");
+    StringBuilder s = new StringBuilder("-----Piloto-----\n");
     
     s.append(" Nome: " + this.getNome()+"\n");
     s.append(" Nacionalidade:" + this.getNacionalidade()+"\n");

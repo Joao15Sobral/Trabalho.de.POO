@@ -1,4 +1,4 @@
-
+import java.util.Random;
 public abstract class Carros
 {
     // instance variables - replace the example below with your own
@@ -93,7 +93,42 @@ public boolean equals(Object o) {
         }
     
     }
-    
+
+public Carros geraCarros(){
+ Random a = new Random();
+ int carros = a.nextInt(12);
+ Piloto aux = new Piloto();
+ Carros p = null;
+ 
+ switch(carros){
+    case 0:  p = new Carros("Lamborghini", "Aventador LP 700-4", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+                     break;
+    case 1:  p = new Carros("Ferrari", "F12berlinetta",6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+                     break;
+    case 2:  p = new Carros("Porsche", "Cayman", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+                     break;
+    case 3:  p = new Carros("Aston Martin", "DB9", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+                     break;
+    case 4:  p = new Carros("Lamborghini", "Gallardo", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+                     break;
+    case 5:  p = new Carros("Ferrari", "458 Spider",a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+                     break;
+    case 6:  p = new Carros("BMW", "M3", a.nextInt(2000)+4000,a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+                     break;
+    case 7:  p = new Carros("Ford", "Mustang", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+                     break;  
+    case 8:  p = new Carros("Lamborghini", "gallardo Veneno", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+                     break;
+    case 9:  p = new Carros("Ford", "Mustang GT",a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+                     break;
+    case 10:  p = new Carros("Porsche", "Carrera GT", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+                     break;
+    case 11:  p = new Carros("Nissan", "Skyline", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+                     break;                 
+  default: break;   
+ }
+ return p;
+}       
     
 //toString
 public abstract String toString();

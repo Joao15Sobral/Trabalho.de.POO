@@ -1,51 +1,46 @@
-
-/**
- * Write a description of class Manager here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import java.util.Random;
+import java.util.HashMap;
 public class Manager
 {
     // instance variables - replace the example below with your own
     private Campeonato c;
-    private jogador[] user;
-    private int njogadores;
+    private HashMap<String,jogador> utilizadores;
     
-public Manager(Campeonato c, jogador[] user, int n){
-this.c=c;
-this.user=user;
-this.njogadores=n;
+public Manager(){
+this.c=new Campeonato();
+this.utilizadores = new HashMap<String,jogador>();
 }
+    
+public Manager(Campeonato c, HashMap<String,jogador> utilizadores){
+this.c=c;
+this.utilizadores=utilizadores;
+   
+}
+
 
 public Manager(Manager m){
 this.c=m.getCampeonato();
-this.user=m.getJogador();
-this.njogadores=m.getNjogadores();
+this.utilizadores=m.getUtilizadores(); 
 }
 
 public Campeonato getCampeonato(){
 return this.c;
 }
 
-public jogador[] getJogador(){
-return this.user;
-}
-
-public int getNjogadores(){
-return this.njogadores;
+public HashMap<String,jogador> getUtilizadores(){
+    HashMap<String,jogador> user = new HashMap<String,jogador> ();
+    for(String nome: this.utilizadores.keySet()){
+     user.put(nome,this.utilizadores.get(nome).clone());
+    }    
+    return this.utilizadores;
 }
 
 public void setCampeonato(Campeonato c){
 this.c=c;
 }    
 
-public void setJogador(jogador [] user){
-this.user=user;
-}
-
-public void setNjogadores(int n){
-this.njogadores=n;
+public void setUtilizadores(HashMap<String,jogador> user){
+this.utilizadores=user;
 }
 
 //equals
@@ -56,7 +51,7 @@ public boolean equals(Object o) {
      return false;
      else { Manager m = (Manager) o;
          
-        return (this.getCampeonato().equals(m.getCampeonato()) && this.getJogador().equals(m.getJogador())); 
+        return (this.getCampeonato().equals(m.getCampeonato()) && this.getUtilizadores().equals(m.getUtilizadores())); 
         }
     
     }
@@ -64,15 +59,13 @@ public boolean equals(Object o) {
     
 //toString
 public String toString() {
-    StringBuilder s = new StringBuilder("Manager \n");
-    int i = 0;
-      s.append(" Campeonato: " + this.c +"\n");
-    while(i< this.getNjogadores()) {
-      s.append(" Jogador: " + this.user[i].toString()+"\n");
-    i++;}
-    
-    return s.toString();
-    }
+	StringBuilder s = new StringBuilder("-----Manager-----\n");
+	s.append(this.c.toString()+"\n");
+		for (String nome : this.utilizadores.keySet()) {
+			s.append(this.utilizadores.get(nome).toString());
+		}
+		return s.toString();
+	}
 //clone
    
 public Manager Clone() {

@@ -11,7 +11,7 @@ public class Circuitos
     private double dtmedio;
     private double trecord;
     private double tnasbox;
-    private double meteor;
+    private double deschuva;
     private Carros c1;
     
 public Circuitos(){
@@ -26,11 +26,10 @@ this.tmvoltaSC=0.0;
 this.dtmedio=0.0;
 this.trecord=0.0;
 this.tnasbox=0.0;
-this.meteor=0.0;
-this.c1=new Carros();
+this.c1=null;
 }
     
-public Circuitos(String nome,int distancia,int numvoltas,Piloto p,double PC1,double PC2,double GT,double SC,double dtm,double trd,double tnb,double piso,Carros c1){
+public Circuitos(String nome,int distancia,int numvoltas,Piloto p,double PC1,double PC2,double GT,double SC,double dtm,double trd,double tnb,Carros c1){
 this.nome=nome;
 this.distancia=distancia;
 this.numvoltas=numvoltas;
@@ -42,7 +41,6 @@ this.tmvoltaSC=SC;
 this.dtmedio=dtm;
 this.trecord=trd;
 this.tnasbox=tnb;
-this.meteor=piso;
 this.c1=c1;
 }
 
@@ -50,16 +48,15 @@ public Circuitos(Circuitos c){
 this.nome=c.getNome();
 this.distancia=c.getDistancia();
 this.numvoltas=c.getNumvoltas();
-this.piloto=c.getPiloto();
+this.piloto=c.getPiloto().clone();
 this.tmvoltaPC1=c.getTmvoltaPC1();
 this.tmvoltaPC2=c.getTmvoltaPC2();
 this.tmvoltaGT=c.getTmvoltaGT();
 this.tmvoltaSC=c.getTmvoltaSC();
 this.dtmedio=c.getDtmedio();
 this.trecord=c.getTrecord();
-this.tnasbox=c.getTnasbox();
-this.meteor=c.getMeteor();
-this.c1=c.getCarro();
+this.tnasbox=c.getTnasbox();;
+this.c1=c.getCarro().clone();
 }
 
 //get
@@ -107,10 +104,6 @@ return this.trecord;
 
 public double getTnasbox(){
 return this.tnasbox;
-}
-
-public double getMeteor(){
-return this.meteor;
 }
 
 public Carros getCarro(){
@@ -179,7 +172,9 @@ public boolean equals(Object o) {
     if((o==null)||(this.getClass() != o.getClass()))
      return false;
      else { Circuitos c = (Circuitos) o;
-         if(this.getDistancia()==(c.getDistancia()) && this.getTmvoltaPC1()==(c.getTmvoltaPC1())&& this.getTmvoltaPC2()==(c.getTmvoltaPC2()) && this.getTmvoltaGT()==(c.getTmvoltaGT()) && this.getTmvoltaSC()==(c.getTmvoltaSC())&& this.getTrecord()==(c.getTrecord()));
+         if(this.getNome().equals(c.getNome())&& this.getDistancia()==(c.getDistancia()) && this.getTmvoltaPC1()==(c.getTmvoltaPC1())&& this.getTmvoltaPC2()==(c.getTmvoltaPC2()) && 
+         this.getTmvoltaGT()==(c.getTmvoltaGT()) && this.getTmvoltaSC()==(c.getTmvoltaSC())&& 
+         this.getTrecord()==(c.getTrecord())&&this.getDtmedio()==(c.getDtmedio()));
          return true;
         }
     
@@ -188,7 +183,7 @@ public boolean equals(Object o) {
     
 //toString
 public String toString() {
-    StringBuilder s = new StringBuilder("-------Circuito-------\n");
+    StringBuilder s = new StringBuilder("-----Circuito-----\n");
     
     s.append(" Nome do Circuito: " + this.getNome()+"\n");
     s.append(" Distancia: " + this.getDistancia()+"\n");
@@ -197,8 +192,9 @@ public String toString() {
     s.append(" Tempo medio volta GT:" + this.getTmvoltaGT()+"\n");
     s.append(" Tempo medio volta SC:" + this.getTmvoltaSC()+"\n");
     s.append(" Tempo recorde:"+ this.getTrecord()+"\n");
-    s.append(" Piloto recordista: " + this.getPiloto()+"\n");
-    s.append(" Carro recordista: " + this.getCarro()+"\n");
+    s.append(" Desvio ao Tempo Medio, com piso molhado:"+ this.getDtmedio()+"\n");
+    s.append(" Piloto recordista: " + this.getPiloto().toString()+"\n");
+    s.append(" Carro recordista: " + this.getCarro().toString()+"\n");
     
     return s.toString();
     }
@@ -210,30 +206,25 @@ public Circuitos Clone() {
 
 public Circuitos geraCircuito(){
  Random a = new Random();
- int circuito = a.nextInt(10);
+ int circuito = a.nextInt(6);
  Circuitos c = new Circuitos();
+ Piloto aux = new Piloto();
+ Carros m = new Carros();
  
  switch(Circuitos){
-    case 0:  c = new Circuitos("Fernando Alonso", "Espanha", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 0:  c = new Circuitos("Grand Premio Monaco",3340,15,aux.geraPiloto(),122.2,152.7,200.0,210.8,10.2,115.1,20.3,m.geraCarros());
                      break;
-    case 1:  c = new Circuitos("Christian Heins", "Americano", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 1:  c = new Circuitos("Circuito de SilverStone",3340,15,aux.geraPiloto(),122.2,152.7,200.0,210.8,10.2,115.1,20.3,m.geraCarros());
                      break;
-    case 2:  c = new Circuitos("Ayrton Senna", "Brasileiro", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 2:  c = new Circuitos("Circuito da Catalunha",3340,15,aux.geraPiloto(),122.2,152.7,200.0,210.8,10.2,115.1,20.3,m.geraCarros());
                      break;
-    case 3:  c = new Circuitos("Filipe Massa", "Brasileiro", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 3:  c = new Circuitos("Circuito de Falperra",3340,15,aux.geraPiloto(),122.2,152.7,200.0,210.8,10.2,115.1,20.3,m.geraCarros());
                      break;
-    case 4:  c = new Circuitos("Stefan Bellof", "Alemão", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 4:  c = new Circuitos("Circuito do Porto",3340,15,aux.geraPiloto(),122.2,152.7,200.0,210.8,10.2,115.1,20.3,m.geraCarros());
                      break;
-    case 5:  c = new Circuitos("George Abecassis", "Inglês", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 5:  c = new Circuitos("Circuito de Coimbra",3340,15,aux.geraPiloto(),122.2,152.7,200.0,210.8,10.2,115.1,20.3,m.geraCarros());
                      break;
-    case 6:  c = new Circuitos("Jean Alesi", "Francês", a.nextInt(99)+1, a.nextInt(9)+1, false);
-                     break;
-    case 7:  c = new Circuitos("Marco Apicella", "Italiano", a.nextInt(99)+1, a.nextInt(9)+1, false);
-                     break;
-    case 8:  c = new Circuitos("Conny Andersson", "Sueco", a.nextInt(99)+1, a.nextInt(9)+1, false);
-                     break;
-    case 9:  c = new Circuitos("Philippe Adams", "Belga", a.nextInt(99)+1, a.nextInt(9)+1, false);
-                     break;
+   
      default: break;    
 }
 return c;

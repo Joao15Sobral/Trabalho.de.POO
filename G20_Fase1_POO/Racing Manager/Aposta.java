@@ -1,10 +1,4 @@
 
-/**
- * Write a description of class Aposta here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Aposta
 {
     // instance variables - replace the example below with your own
@@ -23,10 +17,10 @@ public class Aposta
  
  public Aposta (Aposta a){
    this.aposta=a.getAposta();
-   this.c1=a.getC1();
-   this.c2=a.getC2();
-   this.c3=a.getC3();
-   this.m=a.getM();
+   this.c1=a.getC1().clone();
+   this.c2=a.getC2().clone();
+   this.c3=a.getC3().clone();
+   this.m=a.getM().clone();
  }
  
  //get
@@ -88,7 +82,7 @@ public boolean equals(Object o) {
     
 //toString
 public String toString() {
-    StringBuilder s = new StringBuilder(" Aposta \n");
+    StringBuilder s = new StringBuilder("-----Aposta-----\n");
     
     s.append(" Aposta:" + this.getAposta()+"\n");
     s.append(" Carro1:" + this.getC1()+"\n");

@@ -1,35 +1,29 @@
-
-/**
- * Write a description of class Corrida here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import java.util.HashSet;
 public class Corrida
 {
     // instance variables - replace the example below with your own
-    private Carros[] participantes;
-    private int ncarros;
+    private HashSet<Carros> participantes;
     private Circuitos pista; 
 
-public Corrida(Circuitos c, Carros[] participantes, int ncarros){
- this.participantes=participantes;
- this.ncarros=ncarros;
+public Corrida(Circuitos c, HashSet<Carros> participantes){
  this.pista=c;
+ this.participantes=new HashSet<Carros>();
+ for(Carros c: participantes){
+  this.participantes.add(c.clone());  
+  }
 }
 
 public Corrida(Corrida c){
 this.participantes=c.getParticipantes();
-this.ncarros=c.getNcarros();
 this.pista=c.getPista();
 }
 
-public Carros[] getParticipantes(){
-return this.participantes;
-}
-
-public int getNcarros(){
-return this.ncarros;
+public HashSet<Carros> getParticipantes(){
+HashSet<Carros> aux = new HashSet<Carros>();
+for (Carros c : carros){
+ aux.add(c.clone());
+} 		
+return aux;
 }
 
 public Circuitos getPista(){
@@ -37,12 +31,8 @@ return this.pista;
 }
 
 
-public void setParticipantes(Carros[] participantes){
+public void setParticipantes(HashSet<Carros> participantes){
 this.participantes=participantes;
-}
-
-public void setNcarros(int ncarros){
-this.ncarros=ncarros;
 }
 
 public void setPista(Circuitos c){
@@ -65,16 +55,17 @@ public boolean equals(Object o) {
     
 //toString
 public String toString() {
-    StringBuilder s = new StringBuilder("Corrida \n");
-    int i = 0;
+    StringBuilder s = new StringBuilder("-----Corrida-----\n");
       s.append(" Circuito: " + this.pista +"\n");
-    while(i< this.getNcarros()) {
-      s.append(" Carro: " + this.participantes[i].toString()+"\n");
-    i++;}
-    
-    return s.toString();
+      for (Carros c : this.getCarros()){
+			s.append(c.toString());
+			
+
+}    
+return s.toString();
     }
-//clone
+
+    //clone
    
 public Corrida Clone() {
      return new Corrida(this);

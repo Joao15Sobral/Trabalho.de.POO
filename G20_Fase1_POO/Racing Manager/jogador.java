@@ -104,7 +104,7 @@ public boolean equals(Object o) {
     
 //toString
 public String toString() {
-    StringBuilder s = new StringBuilder("-----Jogador------");
+    StringBuilder s = new StringBuilder("-----Jogador-----\n");
     
     s.append(" Nome: " + this.getNome()+"\n");
     s.append(" Morada:" + this.getMorada()+"\n");
