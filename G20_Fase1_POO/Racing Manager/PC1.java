@@ -51,16 +51,20 @@ public double tempoProximaVolta(Circuitos m, boolean chuva, Piloto p1){
 Random a = new Random();
 int res = 0;
  if(a.nextInt(this.fiabilidade)==0)//testa fiabilidade
-    res=1;//valor por omissao caso o carro não conclua a volta
- if(p1.getQualidade()>8 && this.getPotencia()){//testa qualidade piloto
-  res=1;} 
+    res=8888;//valor por omissao caso o carro não conclua a volta
  else{ 
-  res=1;
+  res= m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((5-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
   }
- if(this.getPotencia())//testa potencia do carro 
+
  if(chuva)//testa Chuva
- res=1;
-}    
+ if(p1.getQualidadeChuva())
+ res=m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((6-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+ else
+ res=m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((5.5-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+ 
+ return res;
+}
+    
     
 public PC1 clone() { 
     return new PC1(this); 
@@ -73,13 +77,13 @@ public PC1 geraPC1(){
  PC1 p = new PC1();
  
  switch(pc1){
-    case 0:  p = new PC1("Lamborghini", "Aventador LP 700-4", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 0:  p = new PC1("Lamborghini", "Aventador LP 700-4", 6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 1:  p = new PC1("Ferrari", "F12berlinetta",6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 1:  p = new PC1("Ferrari", "F12berlinetta",6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 2:  p = new PC1("Porsche", "Cayman", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 2:  p = new PC1("Porsche", "Cayman", 6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 3:  p = new PC1("Aston Martin", "DB9", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 3:  p = new PC1("Aston Martin", "DB9", 6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto());
                      break;
   default: break;   
  }

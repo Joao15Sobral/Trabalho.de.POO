@@ -4,7 +4,7 @@ public class PC2 extends Carros
 {
     // instance variables - replace the example below with your own
           
-          private int fiabilidade ;
+          private static final int fiabilidade = 70 ;
 
 public PC2(){
 super();
@@ -12,15 +12,12 @@ super();
           
 public PC2(String marca, String modelo,int cilindrada,int potencia,Piloto p1, Piloto p2)
 {
-    super(marca,modelo,cilindrada,potencia,p1,p2);
-    
-   
+    super(marca,modelo,cilindrada,potencia,p1,p2);   
 }
 
 public PC2(PC2 c){
-super(c);
-
-this.fiabilidade=c.getFiabilidade();
+ super(c);
+ this.fiabilidade=c.getFiabilidade();
 }
 
 public int getFiabilidade(){
@@ -70,7 +67,7 @@ public PC2 geraPC2(){
  PC2 p = new PC2();
  
  switch(pc2){
-    case 0:  p = new PC2("Lamborghini", "Gallardo", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 0:  p = new PC2("Lamborghini", "Gallardo", a.nextInt(2000)+4000, a.nextInt(450)+400, aux.geraPiloto(),aux.geraPiloto());
                      break;
     case 1:  p = new PC2("Ferrari", "458 Spider",a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;

@@ -22,11 +22,31 @@ super(c);
 
 }
 
-public double calFiabilidade(){//nao acabada
+public double calFiabilidade(Piloto p1 ){//nao acabada
 
-return 0.75*/*getPiloto()**/ + 0.25 * this.getCilindrada();
+return 0.75*p1.getQualidade() + 0.25 * this.getCilindrada();
     
 }
+
+public double tempoProximaVolta(Circuitos m, boolean chuva, Piloto p1){
+Random a = new Random();
+int res = 0;
+ if(a.nextInt(this.calFiabilidade())==0)//testa fiabilidade
+    res=8888;//valor por omissao caso o carro não conclua a volta
+ else{ 
+  res= m.getTmvoltaSC()-((-3 *this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((5-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+  }
+
+ if(chuva)//testa Chuva
+ if(p1.getQualidadeChuva)
+ res=m.getTmvoltaSC()-((-3*this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((6-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+ else
+ res=m.getTmvoltaSC()-((-3*this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((5.5-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+ 
+ return res;
+}
+
+
 
 public boolean equals(Object obj) {
       if(this == obj) return true; 
@@ -59,11 +79,11 @@ public SC geraSC(){
  SC s = new SC();
  
  switch(sc){
-    case 0:  s = new SC("Renault", "V6",2500, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 0:  s = new SC("Renault", "V6",2500, a.nextInt(100)+100, aux.geraPiloto(),aux.geraPiloto());
                      break;
     case 1:  s = new SC("Toyota", "Corolla",2500, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 2:  s = new SC("Subaru", "Imprenza", 2500,a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 2:  s = new SC("Subaru", "Impreza", 2500,a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
     case 3:  s = new SC("Seat", "Ibiza", 2500, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;

@@ -66,6 +66,17 @@ this.c3=c3;
 public void setM(Corrida m){
 this.m=m;
 }
+//metodos
+
+public Aposta verifApostavencedora(){
+
+
+
+
+
+}
+
+
 //equal
 
 public boolean equals(Object o) {
@@ -79,7 +90,7 @@ public boolean equals(Object o) {
     
     }
     
-    
+  
 //toString
 public String toString() {
     StringBuilder s = new StringBuilder("-----Aposta-----\n");

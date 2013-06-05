@@ -1,14 +1,14 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Piloto()
-comment1.params=nome\ nacionalidade\ palmares\ qualidade\ chuva
+comment1.params=nome\ nacionalidade\ palmares\ qualidade\ qualidadechuva
 comment1.target=Piloto(java.lang.String,\ java.lang.String,\ int,\ int,\ boolean)
 comment10.params=palmares
 comment10.target=void\ setPalmares(int)
 comment11.params=qualidade
 comment11.target=void\ setQualidade(int)
-comment12.params=chuva
-comment12.target=void\ setChuva(boolean)
+comment12.params=qualidadechuva
+comment12.target=void\ setQualidadechuva(boolean)
 comment13.params=o
 comment13.target=boolean\ equals(java.lang.Object)
 comment14.params=
@@ -28,7 +28,7 @@ comment5.target=int\ getPalmares()
 comment6.params=
 comment6.target=int\ getQualidade()
 comment7.params=
-comment7.target=boolean\ getChuva()
+comment7.target=boolean\ getQualidadechuva()
 comment8.params=nome
 comment8.target=void\ setNome(java.lang.String)
 comment9.params=nacionalidade

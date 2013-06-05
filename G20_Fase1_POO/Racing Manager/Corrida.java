@@ -39,6 +39,23 @@ public void setPista(Circuitos c){
 this.pista=c;
 }
 
+public Carros verifTempovolta(Carros c1, Carros c2, Circuitos ct){
+    Carros c=null;
+    int i=0;
+    
+    while(i<=ct.getNumvoltas()){
+        if(c1.tempoProximaVolta()<c2.tempoProximaVolta()){
+         c=c1.clone();  
+        }
+        else{
+        c=c2.clone();
+        } 
+        i++;
+   }    
+
+  return c;
+}
+
 //equals
  
 public boolean equals(Object o) {

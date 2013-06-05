@@ -7,22 +7,22 @@ public class Piloto
     private String nacionalidade;
     private int palmares;
     private int qualidade;
-    private boolean chuva;
+    private boolean qualidadechuva;
     
 public Piloto() {
   this.nome = "";
   this.nacionalidade = "";
   this.palmares = 0;
   this.qualidade = 0;
-  this.chuva = false;
+  this.qualidadechuva = true;
 	}
     
-public Piloto(String nome, String nacionalidade, int palmares, int qualidade, boolean chuva){
+public Piloto(String nome, String nacionalidade, int palmares, int qualidade, boolean qualidadechuva){
   this.nome=nome;
   this.nacionalidade=nacionalidade;
   this.palmares=palmares;
   this.qualidade=qualidade;
-  this.chuva=chuva;
+  this.qualidadechuva=qualidadechuva;
 }
 
 public Piloto(Piloto p){
@@ -30,7 +30,7 @@ public Piloto(Piloto p){
   this.nacionalidade=p.getNacionalidade();
   this.palmares=p.getPalmares();
   this.qualidade=p.getQualidade();
-  this.chuva=p.getChuva();   
+  this.qualidadechuva=p.getQualidadechuva();   
 }
 
 public String getNome(){
@@ -49,8 +49,8 @@ public int getQualidade(){
 return this.qualidade;
 }
 
-public boolean getChuva(){
-return this.chuva;
+public boolean getQualidadechuva(){
+return this.qualidadechuva;
 }
 
 public void setNome(String nome){
@@ -69,8 +69,8 @@ public void setQualidade(int qualidade){
  this.qualidade=qualidade;
 }
 
-public void setChuva(boolean chuva){
- this.chuva=chuva;
+public void setQualidadechuva(boolean qualidadechuva){
+ this.qualidadechuva=qualidadechuva;
 }
 
 public boolean equals(Object o) {
@@ -78,7 +78,8 @@ public boolean equals(Object o) {
     if((o==null)||(this.getClass() != o.getClass()))
      return false;
      else { Piloto p = (Piloto) o;
-         return(this.getNome().equals(p.getNome()) && this.getNacionalidade().equals(p.getNacionalidade()) && this.getPalmares()==(p.getPalmares()));
+         return(this.getNome().equals(p.getNome()) && this.getNacionalidade().equals(p.getNacionalidade()) && 
+         this.getPalmares()==(p.getPalmares())&& this.getQualidade()==(p.getQualidade())&& this.getQualidadechuva()==(p.getQualidadechuva()));
          }
     }
     
@@ -91,7 +92,7 @@ public String toString() {
     s.append(" Nacionalidade:" + this.getNacionalidade()+"\n");
     s.append(" Palmares:"+ this.getPalmares()+"\n");
     s.append(" Qualidade: " + this.getQualidade()+"\n");
-    s.append(" Chuva: " + this.getChuva()+"\n");
+    s.append(" Qualidade piso Molhado: " + this.getQualidadechuva()+"\n");
     
     return s.toString();
     }
@@ -107,37 +108,37 @@ public Piloto geraPiloto(){
  Piloto p = new Piloto();
  
  switch(piloto){
-    case 0:  p = new Piloto("Fernando Alonso", "Espanha", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 0:  p = new Piloto("Fernando Alonso", "Espanha", a.nextInt(99)+1, a.nextInt(9)+1, a.nextBoolean());
                      break;
-    case 1:  p = new Piloto("Christian Heins", "Americano", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 1:  p = new Piloto("Christian Heins", "Americano", a.nextInt(99)+1, a.nextInt(9)+1, a.nextBoolean());
                      break;
-    case 2:  p = new Piloto("Ayrton Senna", "Brasileiro", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 2:  p = new Piloto("Ayrton Senna", "Brasileiro", a.nextInt(99)+1, a.nextInt(9)+1, a.nextBoolean());
                      break;
-    case 3:  p = new Piloto("Filipe Massa", "Brasileiro", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 3:  p = new Piloto("Filipe Massa", "Brasileiro", a.nextInt(99)+1, a.nextInt(9)+1, a.nextBoolean());
                      break;
-    case 4:  p = new Piloto("Stefan Bellof", "Alemão", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 4:  p = new Piloto("Stefan Bellof", "Alemão", a.nextInt(99)+1, a.nextInt(9)+1, a.nextBoolean());
                      break;
-    case 5:  p = new Piloto("George Abecassis", "Inglês", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 5:  p = new Piloto("George Abecassis", "Inglês", a.nextInt(99)+1, a.nextInt(9)+1, a.nextBoolean());
                      break;
-    case 6:  p = new Piloto("Jean Alesi", "Francês", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 6:  p = new Piloto("Jean Alesi", "Francês", a.nextInt(99)+1, a.nextInt(9)+1, a.nextBoolean());
                      break;
-    case 7:  p = new Piloto("Marco Apicella", "Italiano", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 7:  p = new Piloto("Marco Apicella", "Italiano", a.nextInt(99)+1, a.nextInt(9)+1, a.nextBoolean());
                      break;
-    case 8:  p = new Piloto("Conny Andersson", "Sueco", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 8:  p = new Piloto("Conny Andersson", "Sueco", a.nextInt(99)+1, a.nextInt(9)+1, a.nextBoolean());
                      break;
-    case 9:  p = new Piloto("Philippe Adams", "Belga", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 9:  p = new Piloto("Philippe Adams", "Belga", a.nextInt(99)+1, a.nextInt(9)+1, a.nextBoolean());
                      break;
-    case 10: p = new Piloto("Rubens Barrichello", "Brasileiro", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 10: p = new Piloto("Rubens Barrichello", "Brasileiro", a.nextInt(99)+1, a.nextInt(9)+1, a.nextBoolean());
                      break;
-    case 11: p = new Piloto("Tom Belsø", "Dinamarquês", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 11: p = new Piloto("Tom Belsø", "Dinamarquês", a.nextInt(99)+1, a.nextInt(9)+1, a.nextBoolean());
                      break;
-    case 12: p = new Piloto("Pablo Birger", "Argentino", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 12: p = new Piloto("Pablo Birger", "Argentino", a.nextInt(99)+1, a.nextInt(9)+1, a.nextBoolean());
                      break;
-    case 13: p = new Piloto("Allen Berg", "Canadiano", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 13: p = new Piloto("Allen Berg", "Canadiano", a.nextInt(99)+1, a.nextInt(9)+1, a.nextBoolean());
                      break;
-    case 14: p = new Piloto("Norberto Fontana", "Argentino", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 14: p = new Piloto("Norberto Fontana", "Argentino", a.nextInt(99)+1, a.nextInt(9)+1, a.nextBoolean());
                      break;
-    case 15: p = new Piloto("Pedro Lamy", "Portuguesa", a.nextInt(99)+1, a.nextInt(9)+1, false);
+    case 15: p = new Piloto("Pedro Lamy", "Portuguesa", a.nextInt(99)+1, a.nextInt(9)+1, a.nextBoolean());
                      break;
             default: break;   
  }
