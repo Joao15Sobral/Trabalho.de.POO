@@ -1,4 +1,4 @@
-
+//falta verifica aposta vencedora,ver classificaçao para numero de apostas ganhas, scoreboard de jogadores com o num de apostas ganhas por cada um
 public class Aposta
 {
     // instance variables - replace the example below with your own
@@ -68,11 +68,11 @@ this.m=m;
 }
 //metodos
 
-public Aposta verifApostavencedora(){
+public int verifAposta(){
 
 
 
-
+return 1;
 
 }
 

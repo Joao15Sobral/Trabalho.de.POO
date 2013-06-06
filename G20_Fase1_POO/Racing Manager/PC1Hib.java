@@ -1,3 +1,4 @@
+//ver tempo por volta para hibridos  e a gerapc1, possibilidade de ser abstract,
 import java.util.Random;
 public class PC1Hib extends PC1
 {
@@ -27,6 +28,24 @@ public class PC1Hib extends PC1
     public void setMotorElectrico(int motor){
     this.motorelectrico=motor;
     }
+    
+    public double tempoProximaVolta(Circuitos m, boolean chuva, Piloto p1){
+Random a = new Random();
+int res = 0;
+ if(a.nextInt(this.fiabilidade)==0)//testa fiabilidade
+    res=8888;//valor por omissao caso o carro não conclua a volta
+ else{ 
+  res= m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ ((this.getPotencia()+a.nextInt(this.getMotorelectrico()))*0.04)+((5-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+  }
+
+ if(chuva)//testa Chuva
+ if(p1.getQualidadeChuva())
+ res=m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ ((this.getPotencia()+a.nextInt(this.getMotorelectrico()))*0.04)+((6-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+ else
+ res=m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ ((this.getPotencia()+a.nextInt(this.getMotorelectrico()))*0.04)+((5.5-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+ 
+ return res;
+}
     
     public boolean equals(Object obj) {
       if(this == obj) return true; 
@@ -60,7 +79,7 @@ public class PC1Hib extends PC1
  PC1Hib p = new PC1Hib();
  
  switch(pc1hib){
-    case 0:  p = new PC1Hib("Lamborghini", "Aventador LP 700-4", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
+    case 0:  p = new PC1Hib("Lamborghini", "Aventador LP 700-4", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
     case 1:  p = new PC1Hib("Ferrari", "F12berlinetta",6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
                      break;

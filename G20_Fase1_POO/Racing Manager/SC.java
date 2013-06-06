@@ -1,5 +1,5 @@
 
-import java.util.Random;
+import java.util.Random;//ver tempo por volta e a gerapc1, possibilidade de ser abstract,
 public class SC extends Carros
 {
     // instance variables - replace the example below with your own

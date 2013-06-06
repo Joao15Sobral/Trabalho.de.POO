@@ -1,4 +1,4 @@
-
+//ver tempo por volta e a gerapc2, possibilidade de ser abstract,
 import java.util.Random;
 public class PC2 extends Carros
 {

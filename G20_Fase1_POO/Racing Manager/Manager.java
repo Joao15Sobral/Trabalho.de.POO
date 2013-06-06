@@ -61,7 +61,8 @@ public boolean equals(Object o) {
 public String toString() {
 	StringBuilder s = new StringBuilder("-----Manager-----\n");
 	s.append(this.c.toString()+"\n");
-		for (String nome : this.utilizadores.keySet()) {
+	s.append("Jogadores Registados\n");	
+	for (String nome : this.utilizadores.keySet()) {
 			s.append(this.utilizadores.get(nome).toString());
 		}
 		return s.toString();

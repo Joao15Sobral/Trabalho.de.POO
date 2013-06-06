@@ -1,5 +1,5 @@
 import java.util.HashSet;
-
+//falta classificaçao campeonato classificaçao trofeu hibrido, gera campeonato,carrega/guarda,
 public class Campeonato
 {
     // instance variables - replace the example below with your own

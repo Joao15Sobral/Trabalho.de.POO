@@ -6,8 +6,10 @@ public class jogador
     private String morada;
     private int apostas;
     private ArrayList<Aposta> historico;
+    private ArrayList<Aposta> actuais;
     private double investimento;
     private double ganhos;
+    private double saldo;
     
 public jogador(){
  this.nome=new String();
@@ -16,15 +18,19 @@ public jogador(){
  this.historico= new ArrayList<Aposta>(); 
  this.investimento=0.0;
  this.ganhos=0.0;
+ this.actuais=new ArrayList<Aposta>();
+ this.saldo=0.0;
 }
 
-public jogador(String nome,String morada,int apostas,ArrayList<Aposta> historico,double investimento,double ganhos){
+public jogador(String nome,String morada,int apostas,ArrayList<Aposta> historico,double investimento,double ganhos,double saldo,ArrayList<Aposta> actuais){
  this.nome=nome;
  this.morada=morada;
  this.apostas=apostas;
  this.historico=historico; 
  this.investimento=investimento;
  this.ganhos=ganhos;
+ this.actuais=actuais;
+ this.saldo=saldo;
 }
 
 public jogador(jogador j){
@@ -34,6 +40,8 @@ public jogador(jogador j){
  this.historico=j.getHistorico(); 
  this.investimento=j.getInvestimento();
  this.ganhos=j.getGanhos();
+ this.actuais=j.getActuais();
+ this.saldo=j.getSaldo();
 }
 
 public String getNome(){
@@ -50,18 +58,30 @@ return this.apostas;
 
 public ArrayList<Aposta> getHistorico(){
  ArrayList<Aposta> hist = new ArrayList<Aposta>();
-  for(Aposta a : this.historico)
+  for(Aposta a : this.historico){
             hist.add(a);
-        return hist;
+        }
+     return hist;
     }
 
-
+public ArrayList<Aposta> getActuais(){
+ ArrayList<Aposta> act= new ArrayList<Aposta>();
+  for(Aposta a: this.actuais){
+    act.add(a);
+    }
+    return act;
+}
+    
 public double getInvestimento(){
 return this.investimento;
 }
 
 public double getGanhos(){
 return this.ganhos;
+}
+
+public double getSaldo(){
+return this.saldo;
 }
 
 public void setNome(String nome){
@@ -76,8 +96,17 @@ public void setApostas(int apostas){
 this.apostas=apostas;
 }
 
-public void getHistorico(ArrayList<Aposta> historico){
+public void setHistorico(ArrayList<Aposta> historico){
 this.historico=historico;
+}
+
+public void setActuais(ArrayList<Aposta> actuais){
+this.actuais=actuais;
+}
+
+public void setSaldo(double saldo){
+this.saldo=saldo;
+
 }
 
 public void setInvestimento(double investimento){
@@ -87,6 +116,8 @@ this.investimento=investimento;
 public void setGanhos(double ganhos){
 this.ganhos=ganhos;
 }
+
+//fazer verifica aposta,classificação jogador;
 
 //equals
  
@@ -110,8 +141,13 @@ public String toString() {
     s.append(" Morada:" + this.getMorada()+"\n");
     s.append(" Dinheiro Investido:" + this.getInvestimento()+"\n");
     s.append(" Dinheiro Ganho:" + this.getGanhos()+"\n");
-    for(Aposta a : this.historico)
-            s.append(a.toString());;
+    s.append(" Saldo:"+this.getSaldo()+"\n");
+    s.append(" Historico de Apostas:\n");
+    for(Aposta a : this.historico){
+            s.append(a.toString()+"\n");}
+    s.append(" Apostas Activas:\n");
+    for(Aposta a : this.actuais){
+           s.append(a.toString()+"\n");}
     
     return s.toString();
     }
