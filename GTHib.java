@@ -60,13 +60,13 @@ public class GTHib extends GT
  GTHib g = new GTHib();
  
  switch(gthib){
-    case 0:  g = new GTHib("Lamborghini", "gallardo Veneno", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
+    case 0:  g = new GTHib("Alfa Romeo", "8C Coupé", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
-    case 1:  g = new GTHib("Ford", "Mustang GT",a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
+    case 1:  g = new GTHib("Corvette", "ZR1",a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
-    case 2:  g = new GTHib("Porsche", "Carrera GT", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
+    case 2:  g = new GTHib("Honda", "Legend 3.7 V6 SH-AWD", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
-    case 3:  g = new GTHib("Nissan", "Skyline", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
+    case 3:  g = new GTHib("Jaguar", "XFR", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
   default: break;   
  }

@@ -60,13 +60,13 @@ public PC2Hib geraPC2Hib(){
  PC2Hib p = new PC2Hib();
  
  switch(pc2hib){
-    case 0:  p = new PC2Hib("Lamborghini", "Gallardo", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
+    case 0:  p = new PC2Hib("Mitsubishi", "Lancer Evo X", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
-    case 1:  p = new PC2Hib("Ferrari", "458 Spider",a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
+    case 1:  p = new PC2Hib("Subaru", "Impreza WRX STI",a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
-    case 2:  p = new PC2Hib("BMW", "M3", a.nextInt(2000)+4000,a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
+    case 2:  p = new PC2Hib("VW", "Phaeton W12", a.nextInt(2000)+4000,a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
-    case 3:  p = new PC2Hib("Ford", "Mustang", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
+    case 3:  p = new PC2Hib("Dodge", "Caliber 2.4 Turbo", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
   default: break;   
  }
