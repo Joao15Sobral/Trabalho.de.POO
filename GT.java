@@ -1,6 +1,6 @@
 //ver tempo por volta e a gerapc1, possibilidade de ser abstract,
 import java.util.Random;
-public class GT extends Carros
+public  abstract class GT extends Carros
 {
     // instance variables - replace the example below with your own
           private int cd;
@@ -51,23 +51,9 @@ int res = 0;
  return res;
 }   
    
-public String toString() {
-    
-    StringBuilder s = new StringBuilder("-----GT-----\n");
-    
-    s.append(" Marca: " + this.getMarca()+"\n");
-    s.append(" Modelo:" + this.getModelo()+"\n");
-    s.append(" Cilindrada:"+ this.getCilindrada()+"\n");
-    s.append(" Potencia: " + this.getPotencia()+"\n");
-    s.append(" Piloto 1: " + this.getP1() +"\n");
-    s.append(" Piloto 2: " + this.getP2() +"\n");
-    return s.toString();
-    
-   }
+public abstract String toString();
    
-public GT clone() { 
-    return new GT(this);
-}
+public abstract GT clone();
 
 public GT geraGT(){
  Random a = new Random();

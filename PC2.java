@@ -1,6 +1,6 @@
-//ver tempo por volta e a gerapc2, possibilidade de ser abstract,
+
 import java.util.Random;
-public class PC2 extends Carros
+public abstract class PC2 extends Carros
 {
     // instance variables - replace the example below with your own
           
@@ -41,24 +41,9 @@ public boolean equals(Object obj) {
       return super.equals(c);
    }
 
-public String toString() {
-      
+public abstract String toString();
+public abstract PC2 clone(); 
     
-    StringBuilder s = new StringBuilder("-----PC2-----\n");
-    
-    s.append(" Marca: " + this.getMarca()+"\n");
-    s.append(" Modelo:" + this.getModelo()+"\n");
-    s.append(" Cilindrada:"+ this.getCilindrada()+"\n");
-    s.append(" Potencia: " + this.getPotencia()+"\n");
-    s.append(" Piloto 1: " + this.getP1() +"\n");
-    s.append(" Piloto 2: " + this.getP2() +"\n");
-    return s.toString();
-    }
-   
-   
-public PC2 clone() { 
-    return new PC2(this); 
-}
 
 public PC2 geraPC2(){
  Random a = new Random();

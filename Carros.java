@@ -84,13 +84,25 @@ public void setP2(Piloto p2){
 this.p2=p2;
 }
 
+public boolean verificaHibridos(){
+Class[] m = this.getClass().getInterfaces();
+int i = 0; String s = "interface TrofHibridos"; 
+boolean b = false;
+while(i <m.length) {
+
+if(m[i].toString().equals(s)) b =true;
+
+i++;
+}
+return b;	
+}
+
 public boolean equals(Object o) {
     if (this==o) return true;
     if((o==null)||(this.getClass() != o.getClass()))
      return false;
      else { Carros c = (Carros) o;
-         if(this.getMarca().equals(c.getMarca()) && this.getModelo().equals(c.getModelo()) && this.getCilindrada()==(c.getCilindrada())&& this.getPotencia()==(c.getPotencia()));
-         return true;
+         return (this.getMarca().equals(c.getMarca()) && this.getModelo().equals(c.getModelo()) && this.getCilindrada()==(c.getCilindrada())&& this.getPotencia()==(c.getPotencia())); 
         }
     
     }

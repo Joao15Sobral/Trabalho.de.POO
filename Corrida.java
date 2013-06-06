@@ -1,4 +1,5 @@
 // falta faz corrida, classificaçao corrida,
+import java.util.TreeMap;
 import java.util.HashMap;
 import java.util.HashSet;
 public class Corrida
@@ -44,7 +45,7 @@ this.pista=c;
 public HashMap<Carros,Double> simCorrida(HashMap<Carros,Double> voltas){
 HashMap<Carros,Double> aux= new HashMap<Carros,Double>();
 TreeMap<Carros,Double> aux1= new TreeMap<Carros,Double>();
-int i = 0; Carros r = null;
+Carros r1 = null,r2 = null,r3 = null;
 
 for(Carros c: participantes){
  aux.put(c,0);
@@ -56,19 +57,21 @@ for(Carros c: aux.keySet()){
 if(aux1.containsKey(aux.get(c))== false) {
     aux1.put(aux.get(c),c);
 }else 
-    aux1.put(aux.get(c)+5,c);
+    aux1.put(aux.get(c)+5,c);}
     
-for(Carros c : ){
- System.out.println((i+1)+"º Classificado:"+ r.getMarca() +"\n"+ r.getModelo() +"\n Tempo:\n"+ aux.get(v1));
+Iterator<Carros> carros = aux1.values.iterator();
+r1= (Carros) carros.next();
+r2= (Carros) carros.next();
+r3= (Carros) carros.next();
+   
+System.out.println("1º Classificado: "+ r1.getMarca() +" - "+ r1.getModelo() +" - "+ "Tempo:" + aux.get(r1));
+System.out.println("2º Classificado: "+ r2.getMarca() +" - "+ r2.getModelo() +" - "+ "Tempo:" + aux.get(r2));
+System.out.println("3º Classificado: "+ r3.getMarca() +" - "+ r3.getModelo() +" - "+ "Tempo:" + aux.get(r3));
+
+
+//falta classificaçao para os tres primeiros carros e depois classificaçao troufeu hibrido
  
-
-
-
-}    
-
 return aux1;
-
-}
 
 }
 
