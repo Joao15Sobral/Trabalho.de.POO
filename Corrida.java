@@ -41,23 +41,45 @@ public void setPista(Circuitos c){
 this.pista=c;
 }
 
-public HashMap<Carros,double> simCorrida(){
+public HashMap<Carros,Double> simCorrida(HashMap<Carros,Double> voltas){
+HashMap<Carros,Double> aux= new HashMap<Carros,Double>();
+TreeMap<Carros,Double> aux1= new TreeMap<Carros,Double>();
+int i = 0; Carros r = null;
+
+for(Carros c: participantes){
+ aux.put(c,0);
+}
+System.ou.println(this.pista.getNome()+"\n");
+aux=this.simVoltas(voltas,pista.getNvoltas());
+
+for(Carros c: aux.keySet()){
+if(aux1.containsKey(aux.get(c))== false) {
+    aux1.put(aux.get(c),c);
+}else 
+    aux1.put(aux.get(c)+5,c);
+    
+for(Carros c : ){
+ System.out.println((i+1)+"º Classificado:"+ r.getMarca() +"\n"+ r.getModelo() +"\n Tempo:\n"+ aux.get(v1));
+ 
 
 
-HashMap<Carros,double> aux= new HashMap<Carros,double>();
 
-return aux;
+}    
+
+return aux1;
 
 }
 
-public HashMap<Carros,double> simVoltas(HashSet<Carros> aux1,int nvoltas){
-double res =0.0; int i=0; 
-HashMap<Carros,double> aux= new HashMap<Carros,double>();
-HashMap<Carros,double> aux2= new HashMap<Carros,double>();  
+}
+
+public HashMap<Carros,Double> simVoltas(HashMap<Carros,Double> m,int nvoltas){
+ int i=0; 
+HashMap<Carros,Double> aux= new HashMap<Carros,Double>();
+HashMap<Carros,Double> aux2= new HashMap<Carros,Double>();  
 
 while(i<this.nvoltas){
 System.out.println("___Volta "+this.i+"___\n");
-aux=this.simVolta(aux1);
+aux=this.simVolta();
 
 for(Carros r: aux.KeySet()){
 
@@ -70,10 +92,9 @@ for(Carros r: aux.KeySet()){
  return aux2;
 }
 
-
-public HashMap<Carros,double> simVolta(HashSet<Carros> participantes){
+public HashMap<Carros,Double> simVolta(){
 double res=0.0, minimo= 10000.0;   Carros c = null;
-HashMap<Carros,double> aux = new HashMap<Carros,double>();
+HashMap<Carros,Double> aux = new HashMap<Carros,Double>();
 for(Carros r: participantes){
   res=r.tempoProximavolta(this.pista,this.chuva,this.p1);
   aux.put(r,res);
@@ -93,6 +114,7 @@ public boolean equals(Object o) {
     if (this==o) return true;
     if((o==null)||(this.getClass() != o.getClass()))
      return false;
+     
      else { Corrida c = (Corrida) o;
          if(this.getParticipantes().equals(c.getParticipantes()) && this.getPista().equals(c.getPista()));
          return true;

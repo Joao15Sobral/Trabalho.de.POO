@@ -1,4 +1,4 @@
-//falta corrigir erro na gera carros, 
+//falta corrigir erro na gera carros,verifica se e hibrido; 
 import java.util.Random;
 public abstract class Carros
 {
