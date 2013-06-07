@@ -1,4 +1,4 @@
-package racing.manager;
+ 
 import java.util.Random;
 public class Circuitos
 {
@@ -208,17 +208,17 @@ public Circuitos geraCircuito(){
  Carros m = null;
  
  switch(circuito){
-    case 0:  c = new Circuitos("Grand Premio Monaco",3340,15,aux.geraPiloto(),122.2,152.7,200.0,210.8,10.2,115.1,20.3,m.geraCarros());
+    case 0:  c = new Circuitos("Grand Premio Monaco",3340,15,aux.geraPiloto(),122.2,152.7,200.0,210.8,11.2,115.1,20.3,m.geraCarros());
                      break;
-    case 1:  c = new Circuitos("Circuito de SilverStone",3340,15,aux.geraPiloto(),122.2,152.7,200.0,210.8,10.2,115.1,20.3,m.geraCarros());
+    case 1:  c = new Circuitos("Circuito de SilverStone",4130,10,aux.geraPiloto(),132.2,12.7,210.0,220.8,12.2,125.1,25.3,m.geraCarros());
                      break;
-    case 2:  c = new Circuitos("Circuito da Catalunha",3340,15,aux.geraPiloto(),122.2,152.7,200.0,210.8,10.2,115.1,20.3,m.geraCarros());
+    case 2:  c = new Circuitos("Circuito da Catalunha",2543,12,aux.geraPiloto(),102.2,132.7,180.0,190.8,13.2,95.1,24.3,m.geraCarros());
                      break;
-    case 3:  c = new Circuitos("Circuito de Falperra",3340,15,aux.geraPiloto(),122.2,152.7,200.0,210.8,10.2,115.1,20.3,m.geraCarros());
+    case 3:  c = new Circuitos("Circuito de Falperra",3411,13,aux.geraPiloto(),125.2,155.7,203.0,213.8,9.2,118.1,23.3,m.geraCarros());
                      break;
-    case 4:  c = new Circuitos("Circuito do Porto",3340,15,aux.geraPiloto(),122.2,152.7,200.0,210.8,10.2,115.1,20.3,m.geraCarros());
+    case 4:  c = new Circuitos("Circuito do Porto",2678,7,aux.geraPiloto(),104.2,134.7,182.0,192.8,8.2,97.1,22.3,m.geraCarros());
                      break;
-    case 5:  c = new Circuitos("Circuito de Coimbra",3340,15,aux.geraPiloto(),122.2,152.7,200.0,210.8,10.2,115.1,20.3,m.geraCarros());
+    case 5:  c = new Circuitos("Circuito de Coimbra",3038,6,aux.geraPiloto(),112.2,142.7,190.0,200.8,11.6,105.1,21.3,m.geraCarros());
                      break;
    
      default: break;    
