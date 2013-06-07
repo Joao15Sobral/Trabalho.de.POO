@@ -1,5 +1,5 @@
 //ver tempo por volta para hibridos  e a gerapc1
-package racing.manager;
+ 
 import java.util.Random;
 public class PC1Hib extends PC1 implements TrofHibridos
 {
@@ -81,13 +81,13 @@ double res = 0;
  PC1Hib p = new PC1Hib();
  
  switch(pc1hib){
-    case 0:  p = new PC1Hib("Lamborghini", "Aventador LP 700-4", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+    case 0:  g = new PC1Hib("Bugatti", "Veyron", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
-    case 1:  p = new PC1Hib("Ferrari", "F12berlinetta",6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
+    case 1:  p = new PC1Hib("Mercedes-Benz", "Lotec C1000",6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
-    case 2:  p = new PC1Hib("Porsche", "Cayman", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
+    case 2:  p = new PC1Hib("Hennessey", "Venom 1000 Twin Turbo", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
-    case 3:  p = new PC1Hib("Aston Martin", "DB9", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
+    case 3:  p = new PC1Hib("Koenigsegg", "Agera R", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
   default: break;   
  }
