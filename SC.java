@@ -3,9 +3,7 @@ import java.util.Random;
 public class SC extends Carros
 {
     // instance variables - replace the example below with your own
-          private static final int cd = 2500;
-         
-   
+          private static final int cd = 2500;  
 
 public SC(){
 super();
@@ -24,15 +22,15 @@ super(c);
 
 public int calFiabilidade(Piloto p1 ){//nao acabada
 
-return (75 * p1.getQualidade() + 25 * this.getCilindrada())/100;
+return (99 - (10-(p1.getQualidade)));
     
 }
 
 public double tempoProximaVolta(Circuitos m, boolean chuva){
 Random a = new Random();
 double res = 0.0;
- if(a.nextInt(this.calFiabilidade(getP1()))==0)//testa fiabilidade
-    res=8888;//valor por omissao caso o carro não conclua a volta
+ if(a.nextInt(getFiabilidade())<(calFiabilidade (getP1())))// ver se é get piloto 1
+    System.out.println("DNF");
  else{ 
   res= m.getTmvoltaSC()-((-3 *this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
   }

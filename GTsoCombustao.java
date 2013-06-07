@@ -4,6 +4,8 @@ public class GTsoCombustao extends GT
 {
 
   private int cd;
+  private static final int fiabilidade=100;
+
           
 public GTsoCombustao(){
 super();
@@ -22,7 +24,7 @@ super(g);
 
 public int calFiabilidade(){//nao acabada
 
-return 1; //((voltasfeitas*taxa)/cilindradaMenor); (menos cilindrada mais fiavel);
+return (90-((numerodevoltas*2)+((3000 - this.getCilindrada)/-300))); //meter numero de voltas;
     
 }
 
@@ -36,8 +38,8 @@ public boolean equals(Object obj) {
 public double tempoProximaVolta(Circuitos m, boolean chuva){
 Random a = new Random();
 double res = 0;
- if(a.nextInt(this.calFiabilidade())==0)//testa fiabilidade
-    res=8888;//valor por omissao caso o carro não conclua a volta
+ if(a.nextInt(calFiabilidade())<(100-(calFiabilidade)))//testa fiabilidade
+    System.out.println("DNF");//valor por omissao caso o carro não conclua a volta
  else{ 
   res= m.getTmvoltaGT()-((-this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
   }

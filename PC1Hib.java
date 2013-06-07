@@ -3,9 +3,10 @@
 import java.util.Random;
 public class PC1Hib extends PC1 implements TrofHibridos
 {
-    // instance variables - replace the example below with your own
+    private static final int cd = 6000;
+    private static final int fiabilidade = 100;
     private int motorelectrico;
-    //fiabilidade e menor do que no pc1 normal;
+   
     public PC1Hib()
     {
       super();  
@@ -33,8 +34,8 @@ public class PC1Hib extends PC1 implements TrofHibridos
     public double tempoProximaVolta(Circuitos m, boolean chuva){
 Random a = new Random();
 double res = 0;
- if(a.nextInt(this.getFiabilidade())==0)//testa fiabilidade
-    res=8888;//valor por omissao caso o carro não conclua a volta
+if(a.nextInt(getFiabilidade())<25)//testa fiabilidade
+    System.out.println("DNF");
  else{ 
   res= m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ ((this.getPotencia()+a.nextInt(this.getMotorElectrico()))*0.04)+((5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
   }

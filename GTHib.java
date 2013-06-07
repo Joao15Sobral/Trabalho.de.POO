@@ -3,6 +3,7 @@ import java.util.Random;
 public class GTHib extends GT implements TrofHibridos
 {
         private int motorelectrico;
+        private static final int fiabilidade=100; // ver se é 100 ou se nao se mete nada
     //fiabilidade e menor do que no pc1 normal;
     public GTHib()
     {
@@ -27,6 +28,12 @@ public class GTHib extends GT implements TrofHibridos
     public void setMotorElectrico(int motor){
     this.motorelectrico=motor;
     }
+    
+    public int calFiabilidade(){//nao acabada
+
+        return (80-((numerodevoltas*2)+((3000 - this.getCilindrada)/-300))); //meter numero de voltas;
+    }
+    
     
     public boolean equals(Object obj) {
       if(this == obj) return true; 

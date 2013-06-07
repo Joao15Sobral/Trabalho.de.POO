@@ -1,9 +1,9 @@
-package racing.manager; 
+   
 import java.util.Random;
 public class PC1soCombustao extends PC1
 {
     private static final int cd = 6000;
-      private static final int fiabilidade=100;  
+      private static final int fiabilidade = 100;  
 
 public PC1soCombustao(){
 super();

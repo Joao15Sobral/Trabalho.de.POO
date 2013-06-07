@@ -3,6 +3,7 @@ import java.util.Random;
 public class PC2Hib extends PC2 implements TrofHibridos
 {
         private int motorelectrico;
+        private static final int fiabilidade=70;
     //fiabilidade e menor do que no pc2 normal;
     public PC2Hib()
     {
@@ -28,6 +29,17 @@ public class PC2Hib extends PC2 implements TrofHibridos
     this.motorelectrico=motor;
     }
     
+    public int getFiabilidade(){
+        return this.fiabilidade;
+    }
+
+    public int calFiabilidade(){
+
+        return (60+((5000-this.getCilindrada())*(-1/100)));
+    
+    }
+    
+    
    public boolean equals(Object obj) {
       if(this == obj) return true; 
       if((obj == null) || (this.getClass() != obj.getClass())) return false;
@@ -52,8 +64,8 @@ public class PC2Hib extends PC2 implements TrofHibridos
    public double tempoProximaVolta(Circuitos m, boolean chuva){
 Random a = new Random();
 double res = 0;
- if(a.nextInt(getFiabilidade())==0)//testa fiabilidade
-    res=8888;//valor por omissao caso o carro não conclua a volta
+ if(a.nextInt(calFiabilidade())<(100-(calFiabilidade)))//testa fiabilidade
+    System.out.println("DNF");//valor por omissao caso o carro não conclua a volta
  else{ 
   res= m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
   }
