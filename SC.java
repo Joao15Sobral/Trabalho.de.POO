@@ -1,4 +1,4 @@
-package racing.manager;
+ 
 import java.util.Random;
 public class SC extends Carros
 {
@@ -81,11 +81,11 @@ public SC geraSC(){
  switch(sc){
     case 0:  s = new SC("Renault", "V6",2500, a.nextInt(100)+100, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 1:  s = new SC("Toyota", "Corolla",2500, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 1:  s = new SC("Toyota", "Corolla",2500, a.nextInt(100)+100, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 2:  s = new SC("Subaru", "Impreza", 2500,a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 2:  s = new SC("Subaru", "Impreza", 2500, a.nextInt(100)+100, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 3:  s = new SC("Seat", "Ibiza", 2500, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 3:  s = new SC("Seat", "Ibiza", 2500, a.nextInt(100)+100, aux.geraPiloto(),aux.geraPiloto());
                      break;
   default: break;   
  }

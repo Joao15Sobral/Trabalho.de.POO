@@ -1,4 +1,4 @@
-package racing.manager;
+ 
 import java.util.Random;
 //ver tempo por volta e a gerapc1, possibilidade de ser abstract,
 public abstract class PC1 extends Carros

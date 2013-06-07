@@ -1,4 +1,4 @@
-package racing.manager;
+ 
 import java.util.Random;
 public class GTsoCombustao extends GT
 {
@@ -78,11 +78,11 @@ public GTsoCombustao geraGTsoCombustao(){
  switch(gt){
     case 0:  g = new GTsoCombustao("Lamborghini", "gallardo Veneno", a.nextInt(1500)+3000, a.nextInt(200)+300, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 1:  g = new GTsoCombustao("Ford", "Mustang GT",a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 1:  g = new GTsoCombustao("Ford", "Mustang GT",a.nextInt(1500)+3000, a.nextInt(200)+300, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 2:  g = new GTsoCombustao("Porsche", "Carrera GT", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 2:  g = new GTsoCombustao("Porsche", "Carrera GT", a.nextInt(1500)+3000, a.nextInt(200)+300, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 3:  g = new GTsoCombustao("Nissan", "Skyline", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 3:  g = new GTsoCombustao("Nissan", "Skyline", a.nextInt(1500)+3000, a.nextInt(200)+300, aux.geraPiloto(),aux.geraPiloto());
                      break;
   default: break;   
  }

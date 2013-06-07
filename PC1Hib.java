@@ -81,13 +81,13 @@ double res = 0;
  PC1Hib p = new PC1Hib();
  
  switch(pc1hib){
-    case 0:  g = new PC1Hib("Bugatti", "Veyron", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+    case 0:  g = new PC1Hib("Bugatti", "Veyron", 6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
-    case 1:  p = new PC1Hib("Mercedes-Benz", "Lotec C1000",6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+    case 1:  p = new PC1Hib("Mercedes-Benz", "Lotec C1000",6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
-    case 2:  p = new PC1Hib("Hennessey", "Venom 1000 Twin Turbo", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+    case 2:  p = new PC1Hib("Hennessey", "Venom 1000 Twin Turbo", 6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
-    case 3:  p = new PC1Hib("Koenigsegg", "Agera R", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+    case 3:  p = new PC1Hib("Koenigsegg", "Agera R", 6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
   default: break;   
  }

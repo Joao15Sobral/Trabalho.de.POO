@@ -1,4 +1,4 @@
-package racing.manager;
+ 
 import java.util.Random;
 public class PC2soCombustao extends PC2
 {
@@ -80,11 +80,11 @@ PC2soCombustao p = new PC2soCombustao();
  switch(pc2){
     case 0:  p = new PC2soCombustao("Lamborghini", "Gallardo", a.nextInt(2000)+4000, a.nextInt(450)+400, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 1:  p = new PC2soCombustao("Ferrari", "458 Spider",a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 1:  p = new PC2soCombustao("Ferrari", "458 Spider",a.nextInt(2000)+4000, a.nextInt(450)+400, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 2:  p = new PC2soCombustao("BMW", "M3", a.nextInt(2000)+4000,a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 2:  p = new PC2soCombustao("BMW", "M3", a.nextInt(2000)+4000, a.nextInt(450)+400, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 3:  p = new PC2soCombustao("Ford", "Mustang", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 3:  p = new PC2soCombustao("Ford", "Mustang", a.nextInt(2000)+4000, a.nextInt(450)+400, aux.geraPiloto(),aux.geraPiloto());
                      break;
   default: break;   
  }
