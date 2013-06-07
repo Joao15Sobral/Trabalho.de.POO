@@ -1,3 +1,4 @@
+package racing.manager;
 import java.util.Random;
 
 public class Piloto

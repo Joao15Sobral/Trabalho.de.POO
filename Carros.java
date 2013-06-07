@@ -1,4 +1,5 @@
 //falta corrigir erro na gera carros,verifica se e hibrido; 
+package racing.manager;
 import java.util.Random;
 public abstract class Carros
 {
@@ -60,7 +61,7 @@ public Piloto getP2(){
 return this.p2;
 }
 
-public void setMarca(String Marca){
+public void setMarca(String marca){
 this.marca=marca;
 }
 
@@ -83,6 +84,8 @@ public void setP1(Piloto p1){
 public void setP2(Piloto p2){
 this.p2=p2;
 }
+
+public abstract double tempoProximaVolta(Circuitos m, boolean chuva);
 
 public boolean verificaHibridos(){
 Class[] m = this.getClass().getInterfaces();
@@ -114,29 +117,29 @@ public Carros geraCarros(){
  Carros p = null;
  
  switch(carros){
-    case 0:  p = new Carros("Lamborghini", "Aventador LP 700-4", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 0:  p = new PC1soCombustao("Lamborghini", "Aventador LP 700-4", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 1:  p = new Carros("Ferrari", "F12berlinetta",6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 1:  p = new PC1soCombustao("Ferrari", "F12berlinetta",6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 2:  p = new Carros("Porsche", "Cayman", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 2:  p = new PC1soCombustao("Porsche", "Cayman", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 3:  p = new Carros("Aston Martin", "DB9", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 3:  p = new PC1soCombustao("Aston Martin", "DB9", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 4:  p = new Carros("Lamborghini", "Gallardo", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 4:  p = new PC2soCombustao("Lamborghini", "Gallardo", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 5:  p = new Carros("Ferrari", "458 Spider",a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 5:  p = new PC2soCombustao("Ferrari", "458 Spider",a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 6:  p = new Carros("BMW", "M3", a.nextInt(2000)+4000,a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 6:  p = new PC2soCombustao("BMW", "M3", a.nextInt(2000)+4000,a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 7:  p = new Carros("Ford", "Mustang", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 7:  p = new PC2soCombustao("Ford", "Mustang", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;  
-    case 8:  p = new Carros("Lamborghini", "gallardo Veneno", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 8:  p = new GTsoCombustao("Lamborghini", "gallardo Veneno", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 9:  p = new Carros("Ford", "Mustang GT",a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 9:  p = new GTsoCombustao("Ford", "Mustang GT",a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 10:  p = new Carros("Porsche", "Carrera GT", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 10:  p = new GTsoCombustao("Porsche", "Carrera GT", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 11:  p = new Carros("Nissan", "Skyline", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 11:  p = new GTsoCombustao("Nissan", "Skyline", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;                 
   default: break;   
  }

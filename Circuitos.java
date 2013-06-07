@@ -1,4 +1,4 @@
-
+package racing.manager;
 import java.util.Random;
 public class Circuitos
 {
@@ -48,14 +48,14 @@ public Circuitos(Circuitos c){
 this.nome=c.getNome();
 this.distancia=c.getDistancia();
 this.numvoltas=c.getNumvoltas();
-this.piloto=c.getPiloto().clone();
+this.piloto=c.getPiloto();
 this.tmvoltaPC1=c.getTmvoltaPC1();
 this.tmvoltaPC2=c.getTmvoltaPC2();
 this.tmvoltaGT=c.getTmvoltaGT();
 this.tmvoltaSC=c.getTmvoltaSC();
 this.dtmedio=c.getDtmedio();
 this.trecord=c.getTrecord();
-this.tnasbox=c.getTnasbox();;
+this.tnasbox=c.getTnasbox();
 this.c1=c.getCarro().clone();
 }
 
@@ -158,10 +158,6 @@ public void setTnasbox(double tnb){
 this.tnasbox=tnb;
 }
 
-public void setMeteor(double meteor){
-this.meteor=meteor;
-}
-
 public void setCarro(Carros c1){
 this.c1=c1;
 }
@@ -209,9 +205,9 @@ public Circuitos geraCircuito(){
  int circuito = a.nextInt(6);
  Circuitos c = new Circuitos();
  Piloto aux = new Piloto();
- Carros m = new Carros();
+ Carros m = null;
  
- switch(Circuitos){
+ switch(circuito){
     case 0:  c = new Circuitos("Grand Premio Monaco",3340,15,aux.geraPiloto(),122.2,152.7,200.0,210.8,10.2,115.1,20.3,m.geraCarros());
                      break;
     case 1:  c = new Circuitos("Circuito de SilverStone",3340,15,aux.geraPiloto(),122.2,152.7,200.0,210.8,10.2,115.1,20.3,m.geraCarros());

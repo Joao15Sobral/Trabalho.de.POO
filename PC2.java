@@ -1,4 +1,4 @@
-
+package racing.manager;
 import java.util.Random;
 public abstract class PC2 extends Carros
 {
@@ -17,15 +17,11 @@ public PC2(String marca, String modelo,int cilindrada,int potencia,Piloto p1, Pi
 
 public PC2(PC2 c){
  super(c);
- this.fiabilidade=c.getFiabilidade();
+
 }
 
 public int getFiabilidade(){
 return this.fiabilidade;
-}
-
-public void setFiabilidade(int fiabilidade){
-this.fiabilidade=fiabilidade;
 }
 
 public int calFiabilidade(){
@@ -40,7 +36,7 @@ public boolean equals(Object obj) {
       PC2 c = (PC2) obj;
       return super.equals(c);
    }
-
+public abstract double tempoProximaVolta(Circuitos m, boolean chuva);
 public abstract String toString();
 public abstract PC2 clone(); 
     
@@ -49,16 +45,16 @@ public PC2 geraPC2(){
  Random a = new Random();
  int pc2 = a.nextInt(4);
  Piloto aux = new Piloto();
- PC2 p = new PC2();
+ PC2 p = null;
  
  switch(pc2){
-    case 0:  p = new PC2("Lamborghini", "Gallardo", a.nextInt(2000)+4000, a.nextInt(450)+400, aux.geraPiloto(),aux.geraPiloto());
+    case 0:  p = new PC2soCombustao("Lamborghini", "Gallardo", a.nextInt(2000)+4000, a.nextInt(450)+400, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 1:  p = new PC2("Ferrari", "458 Spider",a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 1:  p = new PC2soCombustao("Ferrari", "458 Spider",a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 2:  p = new PC2("BMW", "M3", a.nextInt(2000)+4000,a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 2:  p = new PC2soCombustao("BMW", "M3", a.nextInt(2000)+4000,a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 3:  p = new PC2("Ford", "Mustang", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
+    case 3:  p = new PC2soCombustao("Ford", "Mustang", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
   default: break;   
  }

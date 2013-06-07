@@ -1,5 +1,6 @@
+package racing.manager;
 import java.util.Random;
-public class PC2Hib extends PC2
+public class PC2Hib extends PC2 implements TrofHibridos
 {
         private int motorelectrico;
     //fiabilidade e menor do que no pc2 normal;
@@ -27,7 +28,7 @@ public class PC2Hib extends PC2
     this.motorelectrico=motor;
     }
     
-    public boolean equals(Object obj) {
+   public boolean equals(Object obj) {
       if(this == obj) return true; 
       if((obj == null) || (this.getClass() != obj.getClass())) return false;
       PC2Hib h = (PC2Hib) obj;
@@ -47,7 +48,25 @@ public class PC2Hib extends PC2
      s.append(" Piloto 2: " + this.getP2() +"\n");
      return s.toString();
     }
-     
+  
+   public double tempoProximaVolta(Circuitos m, boolean chuva){
+Random a = new Random();
+double res = 0;
+ if(a.nextInt(getFiabilidade())==0)//testa fiabilidade
+    res=8888;//valor por omissao caso o carro não conclua a volta
+ else{ 
+  res= m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
+  }
+
+ if(chuva)//testa Chuva
+ if(getP1().getQualidadechuva())
+ res=m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((6-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
+ else
+ res=m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((5.5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
+ 
+ return res;
+}
+   
    public PC2Hib clone(){
    return new PC2Hib(this);
    }
@@ -60,13 +79,13 @@ public PC2Hib geraPC2Hib(){
  PC2Hib p = new PC2Hib();
  
  switch(pc2hib){
-    case 0:  p = new PC2Hib("Mitsubishi", "Lancer Evo X", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+    case 0:  p = new PC2Hib("Lamborghini", "Gallardo", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
                      break;
-    case 1:  p = new PC2Hib("Subaru", "Impreza WRX STI",a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+    case 1:  p = new PC2Hib("Ferrari", "458 Spider",a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
                      break;
-    case 2:  p = new PC2Hib("VW", "Phaeton W12", a.nextInt(2000)+4000,a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+    case 2:  p = new PC2Hib("BMW", "M3", a.nextInt(2000)+4000,a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
                      break;
-    case 3:  p = new PC2Hib("Dodge", "Caliber 2.4 Turbo", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+    case 3:  p = new PC2Hib("Ford", "Mustang", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(200)+150);
                      break;
   default: break;   
  }

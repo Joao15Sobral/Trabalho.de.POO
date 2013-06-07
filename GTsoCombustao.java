@@ -1,4 +1,5 @@
- import java.util.Random;
+package racing.manager;
+import java.util.Random;
 public class GTsoCombustao extends GT
 {
 
@@ -32,20 +33,20 @@ public boolean equals(Object obj) {
       return super.equals(g);
    }
 
-public double tempoProximaVolta(Circuitos m, boolean chuva, Piloto p1){
+public double tempoProximaVolta(Circuitos m, boolean chuva){
 Random a = new Random();
-int res = 0;
+double res = 0;
  if(a.nextInt(this.calFiabilidade())==0)//testa fiabilidade
     res=8888;//valor por omissao caso o carro não conclua a volta
  else{ 
-  res= m.getTmvoltaGT()-((-this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((5-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+  res= m.getTmvoltaGT()-((-this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
   }
 
  if(chuva)//testa Chuva
- if(p1.getQualidadeChuva)
- res=m.getTmvoltaSC()-((-this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((6-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+ if(getP1().getQualidadechuva())
+ res=m.getTmvoltaSC()-((-this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((6-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
  else
- res=m.getTmvoltaSC()-((-this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((5.5-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+ res=m.getTmvoltaSC()-((-this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((5.5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
  
  return res;
 }   

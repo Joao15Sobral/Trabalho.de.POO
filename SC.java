@@ -1,5 +1,5 @@
-
-import java.util.Random;//ver tempo por volta e a gerapc1, possibilidade de ser abstract,
+package racing.manager;
+import java.util.Random;
 public class SC extends Carros
 {
     // instance variables - replace the example below with your own
@@ -22,26 +22,26 @@ super(c);
 
 }
 
-public double calFiabilidade(Piloto p1 ){//nao acabada
+public int calFiabilidade(Piloto p1 ){//nao acabada
 
-return 0.75*p1.getQualidade() + 0.25 * this.getCilindrada();
+return (75 * p1.getQualidade() + 25 * this.getCilindrada())/100;
     
 }
 
-public double tempoProximaVolta(Circuitos m, boolean chuva, Piloto p1){
+public double tempoProximaVolta(Circuitos m, boolean chuva){
 Random a = new Random();
-int res = 0;
- if(a.nextInt(this.calFiabilidade())==0)//testa fiabilidade
+double res = 0.0;
+ if(a.nextInt(this.calFiabilidade(getP1()))==0)//testa fiabilidade
     res=8888;//valor por omissao caso o carro não conclua a volta
  else{ 
-  res= m.getTmvoltaSC()-((-3 *this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((5-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+  res= m.getTmvoltaSC()-((-3 *this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
   }
 
  if(chuva)//testa Chuva
- if(p1.getQualidadeChuva)
- res=m.getTmvoltaSC()-((-3*this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((6-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+ if(getP1().getQualidadechuva())
+ res = m.getTmvoltaSC()-((-3*this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((6-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
  else
- res=m.getTmvoltaSC()-((-3*this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((5.5-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+ res=m.getTmvoltaSC()-((-3*this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((5.5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
  
  return res;
 }

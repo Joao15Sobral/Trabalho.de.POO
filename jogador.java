@@ -1,3 +1,4 @@
+package racing.manager;
 import java.util.ArrayList;
 public class jogador
 {
@@ -126,8 +127,8 @@ public boolean equals(Object o) {
     if((o==null)||(this.getClass() != o.getClass()))
      return false;
      else { jogador j = (jogador) o;
-         if(this.getNome().equals(j.getNome()) && this.getMorada().equals(j.getMorada()));
-         return true;
+         return (this.getNome().equals(j.getNome()) && this.getMorada().equals(j.getMorada()));
+         
         }
     
     }

@@ -1,4 +1,7 @@
+package racing.manager;
 // falta faz corrida, classificaçao corrida,
+import java.util.Random;
+import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,8 +14,8 @@ public class Corrida
 public Corrida(Circuitos c, HashSet<Carros> participantes){
  this.pista=c;
  this.participantes=new HashSet<Carros>();
- for(Carros c: participantes){
-  this.participantes.add(c.clone());  
+ for(Carros r: participantes){
+  this.participantes.add(r.clone());  
   }
 }
 
@@ -23,7 +26,7 @@ this.pista=c.getPista();
 
 public HashSet<Carros> getParticipantes(){
 HashSet<Carros> aux = new HashSet<Carros>();
-for (Carros c : carros){
+for (Carros c : participantes){
  aux.add(c.clone());
 } 		
 return aux;
@@ -42,16 +45,16 @@ public void setPista(Circuitos c){
 this.pista=c;
 }
 
-public HashMap<Carros,Double> simCorrida(HashMap<Carros,Double> voltas){
+public TreeMap<Double,Carros> simCorrida(HashMap<Carros,Double> voltas){
 HashMap<Carros,Double> aux= new HashMap<Carros,Double>();
-TreeMap<Carros,Double> aux1= new TreeMap<Carros,Double>();
+TreeMap<Double,Carros> aux1= new TreeMap<Double,Carros>();
 Carros r1 = null,r2 = null,r3 = null;
 
 for(Carros c: participantes){
- aux.put(c,0);
+ aux.put(c,0.0);
 }
-System.ou.println(this.pista.getNome()+"\n");
-aux=this.simVoltas(voltas,pista.getNvoltas());
+System.out.println(this.pista.getNome()+"\n");
+aux=this.simVoltas(voltas,pista.getNumvoltas());
 
 for(Carros c: aux.keySet()){
 if(aux1.containsKey(aux.get(c))== false) {
@@ -59,7 +62,7 @@ if(aux1.containsKey(aux.get(c))== false) {
 }else 
     aux1.put(aux.get(c)+5,c);}
     
-Iterator<Carros> carros = aux1.values.iterator();
+Iterator<Carros> carros = aux1.values().iterator();
 r1= (Carros) carros.next();
 r2= (Carros) carros.next();
 r3= (Carros) carros.next();
@@ -80,11 +83,11 @@ public HashMap<Carros,Double> simVoltas(HashMap<Carros,Double> m,int nvoltas){
 HashMap<Carros,Double> aux= new HashMap<Carros,Double>();
 HashMap<Carros,Double> aux2= new HashMap<Carros,Double>();  
 
-while(i<this.nvoltas){
-System.out.println("___Volta "+this.i+"___\n");
+while(i<pista.getNumvoltas()){
+System.out.println("___Volta "+i+"___\n");
 aux=this.simVolta();
 
-for(Carros r: aux.KeySet()){
+for(Carros r: aux.keySet()){
 
     aux2.put(r,aux.get(r)+aux2.get(r));
 
@@ -96,10 +99,11 @@ for(Carros r: aux.KeySet()){
 }
 
 public HashMap<Carros,Double> simVolta(){
+Random a = new Random();
 double res=0.0, minimo= 10000.0;   Carros c = null;
 HashMap<Carros,Double> aux = new HashMap<Carros,Double>();
 for(Carros r: participantes){
-  res=r.tempoProximavolta(this.pista,this.chuva,this.p1);
+  res=r.tempoProximaVolta(this.pista,a.nextBoolean());
   aux.put(r,res);
  if (res<minimo){
      minimo=res;
@@ -131,7 +135,7 @@ public String toString() {
     StringBuilder s = new StringBuilder("-----Corrida-----\n");
       s.append(" Circuito:" + this.pista +"\n");
       s.append(" Carros Participantes:\n" );
-      for (Carros c : this.getCarros()){
+      for (Carros c : this.getParticipantes()){
 			s.append(c.toString());
 			
 
@@ -141,7 +145,7 @@ return s.toString();
 
     //clone
    
-public Corrida Clone() {
+public Corrida clone() {
      return new Corrida(this);
     }
     

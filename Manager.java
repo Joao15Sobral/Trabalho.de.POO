@@ -1,3 +1,4 @@
+package racing.manager;
 import java.util.Random;
 import java.util.HashMap;
 public class Manager
@@ -30,7 +31,7 @@ return this.c;
 public HashMap<String,jogador> getUtilizadores(){
     HashMap<String,jogador> user = new HashMap<String,jogador> ();
     for(String nome: this.utilizadores.keySet()){
-     user.put(nome,this.utilizadores.get(nome).clone());
+     user.put(nome,this.utilizadores.get(nome));
     }    
     return this.utilizadores;
 }

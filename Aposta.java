@@ -1,4 +1,5 @@
-//falta verifica aposta vencedora,ver classificaçao para numero de apostas ganhas, scoreboard de jogadores com o num de apostas ganhas por cada um
+package racing.manager;
+
 public class Aposta
 {
     // instance variables - replace the example below with your own
@@ -68,7 +69,7 @@ this.m=m;
 }
 //metodos
 
-public int verifAposta(){
+public int simAposta(){
 
 
 
@@ -99,7 +100,7 @@ public String toString() {
     s.append(" Carro1:" + this.getC1()+"\n");
     s.append(" Carro2:"+ this.getC2()+"\n");
     s.append(" Carro3:" + this.getC3()+"\n");
-    s.append(" Corrida:" + this.getM());
+    s.append(" Corrida:" + this.getM().clone());
     
     return s.toString();
     }

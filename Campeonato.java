@@ -1,8 +1,9 @@
+package racing.manager;
 import java.util.HashSet;
 //falta classificaçao campeonato classificaçao trofeu hibrido, gera campeonato,carrega/guarda,
 public class Campeonato
 {
-    // instance variables - replace the example below with your own
+    
     private HashSet<Corrida> corrida;
    
 
@@ -29,7 +30,7 @@ for (Corrida c : corrida){
 return aux;
 }
  
-public void setCorrida(Corrida[]corrida){
+public void setCorrida(HashSet<Corrida> corrida){
  this.corrida=corrida;   
  } 
  
@@ -38,8 +39,8 @@ public boolean equals(Object o) {
     if((o==null)||(this.getClass() != o.getClass()))
      return false;
      else { Campeonato m = (Campeonato) o;
-         if(this.getCorrida().equals(m.getCorrida()));
-         return true;
+         return(this.getCorrida().equals(m.getCorrida()));
+        
         }
     
     }
@@ -48,6 +49,7 @@ public boolean equals(Object o) {
 //toString
 public String toString() {
     StringBuilder s = new StringBuilder("-----Campeonato-----\n");
+    
     
     for (Corrida c : this.getCorrida())
 			s.append(c.toString());

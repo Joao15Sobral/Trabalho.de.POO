@@ -1,10 +1,11 @@
+package racing.manager;
 import java.util.Random;
 //ver tempo por volta e a gerapc1, possibilidade de ser abstract,
 public abstract class PC1 extends Carros
 {
     // instance variables - replace the example below with your own
       private static final int cd = 6000;
-      private static final int fiabilidade = 85;  
+      private  int fiabilidade = 85;  
 
 public PC1(){
 super();
@@ -34,56 +35,28 @@ public boolean equals(Object obj) {
       return (this.cd == ((PC1)c).getCilindrada() && super.equals(c) && this.fiabilidade == ((PC1)c).getFiabilidade());
    }
 
-public String toString() {
+public abstract String toString();
     
-    StringBuilder s = new StringBuilder("-----PC1-----\n");
-    
-    s.append(" Marca: " + this.getMarca()+"\n");
-    s.append(" Modelo:" + this.getModelo()+"\n");
-    s.append(" Cilindrada:"+ this.getCilindrada()+"\n");
-    s.append(" Potencia: " + this.getPotencia()+"\n");
-    s.append(" Piloto 1: " + this.getP1() +"\n");
-    s.append(" Piloto 2: " + this.getP2() +"\n");
-    return s.toString();
-    }
 
-public double tempoProximaVolta(Circuitos m, boolean chuva, Piloto p1){
-Random a = new Random();
-int res = 0;
- if(a.nextInt(this.fiabilidade)==0)//testa fiabilidade
-    res=8888;//valor por omissao caso o carro não conclua a volta
- else{ 
-  res= m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((5-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
-  }
-
- if(chuva)//testa Chuva
- if(p1.getQualidadeChuva())
- res=m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((6-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
- else
- res=m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((5.5-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
- 
- return res;
-}
+public abstract double tempoProximaVolta(Circuitos m, boolean chuva);
     
     
-public PC1 clone() { 
-    return new PC1(this); 
-}
+public abstract PC1 clone();
 
 public PC1 geraPC1(){
  Random a = new Random();
  int pc1 = a.nextInt(4);
  Piloto aux = new Piloto();
- PC1 p = new PC1();
+ PC1 p = null;
  
  switch(pc1){
-    case 0:  p = new PC1("Lamborghini", "Aventador LP 700-4", 6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto());
+    case 0:  p = new PC1soCombustao("Lamborghini", "Aventador LP 700-4", 6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 1:  p = new PC1("Ferrari", "F12berlinetta",6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto());
+    case 1:  p = new PC1soCombustao("Ferrari", "F12berlinetta",6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 2:  p = new PC1("Porsche", "Cayman", 6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto());
+    case 2:  p = new PC1soCombustao("Porsche", "Cayman", 6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 3:  p = new PC1("Aston Martin", "DB9", 6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto());
+    case 3:  p = new PC1soCombustao("Aston Martin", "DB9", 6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto());
                      break;
   default: break;   
  }

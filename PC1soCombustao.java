@@ -1,3 +1,4 @@
+package racing.manager;
 import java.util.Random;
 public class PC1soCombustao extends PC1
 {
@@ -45,20 +46,20 @@ public String toString() {
     return s.toString();
     }
 
-public double tempoProximaVolta(Circuitos m, boolean chuva, Piloto p1){
+public double tempoProximaVolta(Circuitos m, boolean chuva){
 Random a = new Random();
-int res = 0;
+double res = 0;
  if(a.nextInt(this.fiabilidade)==0)//testa fiabilidade
     res=8888;//valor por omissao caso o carro não conclua a volta
  else{ 
-  res= m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((5-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+  res= m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
   }
 
  if(chuva)//testa Chuva
- if(p1.getQualidadeChuva())
- res=m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((6-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+ if(getP1().getQualidadechuva())
+ res=m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((6-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
  else
- res=m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((5.5-a.nextInt(p1.getQualidade()))*-4)+a.nextInt(13));
+ res=m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((5.5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
  
  return res;
 }
