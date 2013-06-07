@@ -141,7 +141,7 @@ public Carros geraCarros(){
                      break;
     case 11:  p = new GTsoCombustao("Nissan", "Skyline", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 12:  g = new PC1Hib("Bugatti", "Veyron", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+    case 12:  p = new PC1Hib("Bugatti", "Veyron", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
     case 13:  p = new PC1Hib("Mercedes-Benz", "Lotec C1000",6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
@@ -157,13 +157,21 @@ public Carros geraCarros(){
                      break;
     case 19:  p = new PC2Hib("Dodge", "Caliber 2.4 Turbo", a.nextInt(2000)+4000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
-    case 20:  g = new GTHib("Alfa Romeo", "8C Coupé", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+    case 20:  p = new GTHib("Alfa Romeo", "8C Coupé", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
-    case 21:  g = new GTHib("Corvette", "ZR1",a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+    case 21:  p = new GTHib("Corvette", "ZR1",a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
-    case 22:  g = new GTHib("Honda", "Legend 3.7 V6 SH-AWD", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+    case 22:  p = new GTHib("Honda", "Legend 3.7 V6 SH-AWD", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
-    case 23:  g = new GTHib("Jaguar", "XFR", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+    case 23:  p = new GTHib("Jaguar", "XFR", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+                     break;
+    case 24:  p = new SC("Renault", "V6",2500, a.nextInt(100)+100, aux.geraPiloto(),aux.geraPiloto());
+                     break;
+    case 25:  p = new SC("Toyota", "Corolla",2500, a.nextInt(100)+100, aux.geraPiloto(),aux.geraPiloto());
+                     break;
+    case 26:  p = new SC("Subaru", "Impreza", 2500, a.nextInt(100)+100, aux.geraPiloto(),aux.geraPiloto());
+                     break;
+    case 27:  p = new SC("Seat", "Ibiza", 2500, a.nextInt(100)+100, aux.geraPiloto(),aux.geraPiloto());
                      break;
     
   default: break;   
