@@ -1,9 +1,9 @@
- 
+package racing.manager; 
 import java.util.Random;
 public class PC1soCombustao extends PC1
 {
     private static final int cd = 6000;
-      private static final int fiabilidade = 85;  
+      private static final int fiabilidade=100;  
 
 public PC1soCombustao(){
 super();
@@ -49,8 +49,8 @@ public String toString() {
 public double tempoProximaVolta(Circuitos m, boolean chuva){
 Random a = new Random();
 double res = 0;
- if(a.nextInt(this.fiabilidade)==0)//testa fiabilidade
-    res=8888;//valor por omissao caso o carro não conclua a volta
+ if(a.nextInt(getFiabilidade())<15)//testa fiabilidade
+    System.out.println("DNF");
  else{ 
   res= m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
   }
