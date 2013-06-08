@@ -1,5 +1,5 @@
 //falta corrigir erro na gera carros,verifica se e hibrido; 
- 
+ package racing.manager;
 import java.util.Random;
 public abstract class Carros
 {
@@ -85,7 +85,7 @@ public void setP2(Piloto p2){
 this.p2=p2;
 }
 
-public abstract double tempoProximaVolta(Circuitos m, boolean chuva);
+public abstract double tempoProximaVolta(Circuitos m, boolean chuva)throws Exception;
 
 public boolean verificaHibridos(){
 Class[] m = this.getClass().getInterfaces();
@@ -141,7 +141,7 @@ public Carros geraCarros(){
                      break;
     case 11:  p = new GTsoCombustao("Nissan", "Skyline", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto());
                      break;
-    case 12:  p = new PC1Hib("Bugatti", "Veyron", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+    case 12: p = new PC1Hib("Bugatti", "Veyron", 6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
     case 13:  p = new PC1Hib("Mercedes-Benz", "Lotec C1000",6000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
@@ -164,14 +164,6 @@ public Carros geraCarros(){
     case 22:  p = new GTHib("Honda", "Legend 3.7 V6 SH-AWD", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
     case 23:  p = new GTHib("Jaguar", "XFR", a.nextInt(1500)+3000, a.nextInt(9)+1, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
-                     break;
-    case 24:  p = new SC("Renault", "V6",2500, a.nextInt(100)+100, aux.geraPiloto(),aux.geraPiloto());
-                     break;
-    case 25:  p = new SC("Toyota", "Corolla",2500, a.nextInt(100)+100, aux.geraPiloto(),aux.geraPiloto());
-                     break;
-    case 26:  p = new SC("Subaru", "Impreza", 2500, a.nextInt(100)+100, aux.geraPiloto(),aux.geraPiloto());
-                     break;
-    case 27:  p = new SC("Seat", "Ibiza", 2500, a.nextInt(100)+100, aux.geraPiloto(),aux.geraPiloto());
                      break;
     
   default: break;   

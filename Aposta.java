@@ -1,5 +1,6 @@
 package racing.manager;
-
+import java.util.Iterator;
+import java.util.TreeMap;
 public class Aposta
 {
     // instance variables - replace the example below with your own
@@ -8,6 +9,14 @@ public class Aposta
     private Corrida m;
     
     //construtor
+    public Aposta(){
+    this.aposta=0.0;
+    this.c1=null;
+    this.c2=null;
+    this.c3=null;
+    this.m=new Corrida();
+    }
+    
     public Aposta(double aposta, Carros c1,Carros c2,Carros c3,Corrida m){
     this.aposta=aposta;
     this.c1=c1;
@@ -69,11 +78,18 @@ this.m=m;
 }
 //metodos
 
-public int simAposta(){
+public double verApostavencedora(TreeMap<Double,Carros> classificacao){
+Carros r1=null,r2=null,r3=null; double res=1.0;
+Iterator<Carros> carros = classificacao.values().iterator();
+r1= (Carros) carros.next();
+r2= (Carros) carros.next();
+r3= (Carros) carros.next();
 
-
-
-return 1;
+if(this.getC1().equals(r1.clone())){ res+=0.7;}
+if(this.getC2().equals(r2.clone())){ res+=0.3;}
+if(this.getC3().equals(r3.clone())){ res+=0.1;}   
+//se acertar no 1º/2º/3º=1.7/1.3/1.1; 1º,2º=2; 1º,2º,3º=2.1; 2º,3º=1.4;3º,1º=1.8;
+return res;
 
 }
 

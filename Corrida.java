@@ -11,7 +11,12 @@ public class Corrida
     private HashSet<Carros> participantes;
     private Circuitos pista; 
 
-public Corrida(Circuitos c, HashSet<Carros> participantes){
+ public Corrida(){
+ this.participantes = new HashSet<Carros>();
+ this.pista=new Circuitos();
+ }
+    
+ public Corrida(Circuitos c, HashSet<Carros> participantes){
  this.pista=c;
  this.participantes=new HashSet<Carros>();
  for(Carros r: participantes){
@@ -66,7 +71,8 @@ Iterator<Carros> carros = aux1.values().iterator();
 r1= (Carros) carros.next();
 r2= (Carros) carros.next();
 r3= (Carros) carros.next();
-   
+ 
+System.out.println("Classificaçao da corrida\n");
 System.out.println("1º Classificado: "+ r1.getMarca() +" - "+ r1.getModelo() +" - "+ "Tempo:" + aux.get(r1));
 System.out.println("2º Classificado: "+ r2.getMarca() +" - "+ r2.getModelo() +" - "+ "Tempo:" + aux.get(r2));
 System.out.println("3º Classificado: "+ r3.getMarca() +" - "+ r3.getModelo() +" - "+ "Tempo:" + aux.get(r3));
@@ -79,21 +85,24 @@ return aux1;
 }
 
 public HashMap<Carros,Double> simVoltas(HashMap<Carros,Double> m,int nvoltas){
- int i=0; 
+ int i=0;Piloto p =new Piloto(); 
 HashMap<Carros,Double> aux= new HashMap<Carros,Double>();
 HashMap<Carros,Double> aux2= new HashMap<Carros,Double>();  
+
 
 while(i<pista.getNumvoltas()){
 System.out.println("___Volta "+i+"___\n");
 aux=this.simVolta();
 
 for(Carros r: aux.keySet()){
-
-    aux2.put(r,aux.get(r)+aux2.get(r));
-
+  aux2.put(r,aux.get(r)+aux2.get(r));
+  if(i==0)
+  p=r.getP1();
+  if(i==((pista.getNumvoltas())/2))
+  p=r.getP2();
 }
-
- i++;
+ 
+i++;
 }
  return aux2;
 }
@@ -102,13 +111,17 @@ public HashMap<Carros,Double> simVolta(){
 Random a = new Random();
 double res=0.0, minimo= 10000.0;   Carros c = null;
 HashMap<Carros,Double> aux = new HashMap<Carros,Double>();
-for(Carros r: participantes){
+for(Carros r: participantes)
+    try{
   res=r.tempoProximaVolta(this.pista,a.nextBoolean());
   aux.put(r,res);
  if (res<minimo){
      minimo=res;
      c=r.clone();
     } 
+   }catch (Exception e){
+   System.out.println("DNF");
+   participantes.remove(r);
 
 }
 System.out.println("Carro vencedor da volta:"+ c.getMarca() +"\n"+ c.getModelo()+"\n"+ "Tempo:"+minimo);
@@ -149,6 +162,30 @@ public Corrida clone() {
      return new Corrida(this);
     }
     
+public Corrida geraCorrida(){
+ Random a = new Random();
+ int corrida = a.nextInt(7);
+ Circuitos aux = new Circuitos();
+ Carros p = null;
+ Corrida c = new Corrida();
+ 
+ switch(corrida){
+    case 0:  c = new Corrida(aux.geraCircuito(),new HashSet<Carros>()); 
+        break;
+    case 1:  c = new Corrida(aux.geraCircuito(),new HashSet<Carros>()); 
+        break;
+    case 3:  c = new Corrida(aux.geraCircuito(),new HashSet<Carros>()); 
+        break;
+    case 4:  c = new Corrida(aux.geraCircuito(),new HashSet<Carros>()); 
+        break;    
+    case 5:  c = new Corrida(aux.geraCircuito(),new HashSet<Carros>()); 
+        break;
+    case 6:  c = new Corrida(aux.geraCircuito(),new HashSet<Carros>()); 
+        break;    
+     default: break;    
+            }
+return c;
+}
 }
 
 

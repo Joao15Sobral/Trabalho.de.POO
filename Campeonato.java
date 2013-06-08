@@ -1,5 +1,6 @@
 package racing.manager;
 import java.util.HashSet;
+import java.util.Random;
 //falta classificaçao campeonato classificaçao trofeu hibrido, gera campeonato,carrega/guarda,
 public class Campeonato
 {
@@ -33,7 +34,8 @@ return aux;
 public void setCorrida(HashSet<Corrida> corrida){
  this.corrida=corrida;   
  } 
- 
+
+
 public boolean equals(Object o) {
     if (this==o) return true;
     if((o==null)||(this.getClass() != o.getClass()))
@@ -61,5 +63,20 @@ public String toString() {
 public Campeonato Clone() {
      return new Campeonato(this);
     }
-    
+public Campeonato geraCampeonato(){
+ Random a = new Random();
+ int campeonato = a.nextInt(2);
+ Corrida p = new Corrida();
+ Campeonato c = new Campeonato();
+ 
+ switch(campeonato){
+    case 0:  c = new Campeonato(new HashSet<Corrida>()); 
+        break;
+    case 1:  c = new Campeonato(new HashSet<Corrida>()); 
+        break;
+ 
+    default:break;
+ }    
+return c;
+}
 }

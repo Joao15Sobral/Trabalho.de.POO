@@ -1,5 +1,5 @@
 //ver tempo por volta para hibridos  e a gerapc1
- 
+ package racing.manager;
 import java.util.Random;
 public class PC1Hib extends PC1 implements TrofHibridos
 {
@@ -31,11 +31,11 @@ public class PC1Hib extends PC1 implements TrofHibridos
     this.motorelectrico=motor;
     }
     
-    public double tempoProximaVolta(Circuitos m, boolean chuva){
+public double tempoProximaVolta(Circuitos m, boolean chuva)throws Exception{
 Random a = new Random();
 double res = 0;
-if(a.nextInt(getFiabilidade())<25)//testa fiabilidade
-    System.out.println("DNF");
+if(a.nextInt(fiabilidade)<25)//testa fiabilidade
+    throw new Exception();
  else{ 
   res= m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ ((this.getPotencia()+a.nextInt(this.getMotorElectrico()))*0.04)+((5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
   }
@@ -82,7 +82,7 @@ if(a.nextInt(getFiabilidade())<25)//testa fiabilidade
  PC1Hib p = new PC1Hib();
  
  switch(pc1hib){
-    case 0:  g = new PC1Hib("Bugatti", "Veyron", 6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
+    case 0:  p = new PC1Hib("Bugatti", "Veyron", 6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;
     case 1:  p = new PC1Hib("Mercedes-Benz", "Lotec C1000",6000, a.nextInt(500)+500, aux.geraPiloto(),aux.geraPiloto(),a.nextInt(100)+100);
                      break;

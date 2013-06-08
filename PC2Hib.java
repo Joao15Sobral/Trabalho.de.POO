@@ -1,4 +1,4 @@
- 
+package racing.manager; 
 import java.util.Random;
 public class PC2Hib extends PC2 implements TrofHibridos
 {
@@ -64,7 +64,7 @@ public class PC2Hib extends PC2 implements TrofHibridos
    public double tempoProximaVolta(Circuitos m, boolean chuva){
 Random a = new Random();
 double res = 0;
- if(a.nextInt(calFiabilidade())<(100-(calFiabilidade)))//testa fiabilidade
+ if(a.nextInt(calFiabilidade())<(100-(calFiabilidade())))//testa fiabilidade
     System.out.println("DNF");//valor por omissao caso o carro não conclua a volta
  else{ 
   res= m.getTmvoltaPC1()-((-this.getCilindrada()/200)+ (this.getPotencia()*0.04)+((5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));

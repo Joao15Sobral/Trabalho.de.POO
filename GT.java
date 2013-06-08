@@ -1,5 +1,5 @@
 //ver tempo por volta e a gerapc1, possibilidade de ser abstract,
- 
+ package racing.manager;
 import java.util.Random;
 public  abstract class GT extends Carros
 {
@@ -21,11 +21,8 @@ super(g);
 
 }
 
-public int calFiabilidade(){//nao acabada
+public abstract int calFiabilidade(Circuitos c);
 
-return 1; //((voltasfeitas*taxa)/cilindradaMenor); (menos cilindrada mais fiavel);
-    
-}
 
 public boolean equals(Object obj) {
       if(this == obj) return true; 
@@ -34,7 +31,7 @@ public boolean equals(Object obj) {
       return super.equals(g);
    }
 
-public abstract double tempoProximaVolta(Circuitos m, boolean chuva);
+public abstract double tempoProximaVolta(Circuitos m, boolean chuva)throws Exception;
    
 public abstract String toString();
    

@@ -1,4 +1,4 @@
- 
+package racing.manager; 
 import java.util.Random;
 //ver tempo por volta e a gerapc1, possibilidade de ser abstract,
 public abstract class PC1 extends Carros
@@ -38,7 +38,7 @@ public boolean equals(Object obj) {
 public abstract String toString();
     
 
-public abstract double tempoProximaVolta(Circuitos m, boolean chuva);
+public abstract double tempoProximaVolta(Circuitos m, boolean chuva)throws Exception;
     
     
 public abstract PC1 clone();

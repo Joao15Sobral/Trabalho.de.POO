@@ -1,6 +1,6 @@
-
+package racing.manager;
 
 public interface TrofHibridos
 {
-    public int getMotorelectrico();
+    public int getMotorElectrico();
 }

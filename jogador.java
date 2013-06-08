@@ -1,4 +1,6 @@
+
 package racing.manager;
+import java.util.TreeMap;
 import java.util.ArrayList;
 public class jogador
 {
@@ -18,7 +20,7 @@ public jogador(){
  this.apostas=0;
  this.historico= new ArrayList<Aposta>(); 
  this.investimento=0.0;
- this.ganhos=0.0;
+ this.ganhos=50.0;
  this.actuais=new ArrayList<Aposta>();
  this.saldo=0.0;
 }
@@ -119,6 +121,26 @@ this.ganhos=ganhos;
 }
 
 //fazer verifica aposta,classificação jogador;
+public void verifApostas(Corrida m,TreeMap<Double,Carros> classificacao){
+double res = 0;
+Aposta b=new Aposta();
+for(Aposta a : actuais){
+if(a.getM().getPista().getNome().equals(m.getPista().getNome())){
+res = a.verApostavencedora(classificacao);
+this.investimento-=a.getAposta();
+if(res==1.0){
+this.saldo=this.ganhos-(a.getAposta());
+}else{
+    res = res * (a.getAposta());
+this.ganhos+= res-(a.getAposta());
+this.saldo+=(res);
+}
+this.historico.add(a);
+b = a.Clone();
+}}
+this.actuais.remove(b);
+
+}
 
 //equals
  

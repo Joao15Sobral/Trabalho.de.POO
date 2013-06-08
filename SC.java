@@ -1,9 +1,9 @@
- 
+package racing.manager; 
 import java.util.Random;
 public class SC extends Carros
 {
     // instance variables - replace the example below with your own
-          private static final int cd = 2500;  
+          private static final int cilindrada = 2500;  
 
 public SC(){
 super();
@@ -17,20 +17,19 @@ public SC(String marca, String modelo,int cilindrada,int potencia,Piloto p1,Pilo
 
 public SC(SC c){
 super(c);
-
 }
 
 public int calFiabilidade(Piloto p1 ){//nao acabada
 
-return (99 - (10-(p1.getQualidade)));
+return (99 - (10-(p1.getQualidade())));
     
 }
 
-public double tempoProximaVolta(Circuitos m, boolean chuva){
+public double tempoProximaVolta(Circuitos m, boolean chuva)throws Exception{
 Random a = new Random();
 double res = 0.0;
- if(a.nextInt(getFiabilidade())<(calFiabilidade (getP1())))// ver se é get piloto 1
-    System.out.println("DNF");
+ if(a.nextInt(calFiabilidade(getP1()))<(calFiabilidade(getP1())))
+ throw new Exception(); 
  else{ 
   res= m.getTmvoltaSC()-((-3 *this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
   }

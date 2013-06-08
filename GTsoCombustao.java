@@ -1,4 +1,4 @@
- 
+package racing.manager; 
 import java.util.Random;
 public class GTsoCombustao extends GT
 {
@@ -22,9 +22,9 @@ super(g);
 
 }
 
-public int calFiabilidade(){//nao acabada
+public int calFiabilidade(Circuitos c){
 
-return (90-((numerodevoltas*2)+((3000 - this.getCilindrada)/-300))); //meter numero de voltas;
+return (90-((c.getNumvoltas()*2)+((3000 - this.getCilindrada())/-300))); 
     
 }
 
@@ -35,11 +35,11 @@ public boolean equals(Object obj) {
       return super.equals(g);
    }
 
-public double tempoProximaVolta(Circuitos m, boolean chuva){
+public double tempoProximaVolta(Circuitos m, boolean chuva)throws Exception{
 Random a = new Random();
 double res = 0;
- if(a.nextInt(calFiabilidade())<(100-(calFiabilidade)))//testa fiabilidade
-    System.out.println("DNF");//valor por omissao caso o carro não conclua a volta
+ if(a.nextInt(calFiabilidade(m))<(100-(calFiabilidade(m))))
+    throw new Exception();
  else{ 
   res= m.getTmvoltaGT()-((-this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
   }

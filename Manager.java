@@ -1,5 +1,5 @@
 package racing.manager;
-import java.util.Random;
+
 import java.util.HashMap;
 public class Manager
 {
@@ -56,7 +56,16 @@ public boolean equals(Object o) {
         }
     
     }
+  
+public void simAposta(){
     
+    for(jogador j: utilizadores.values()){
+    j.verifApostas(m,);
+    
+    
+    }
+
+}
     
 //toString
 public String toString() {

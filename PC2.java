@@ -1,4 +1,4 @@
- 
+package racing.manager; 
 import java.util.Random;
 public abstract class PC2 extends Carros
 {
@@ -24,11 +24,7 @@ public int getFiabilidade(){
 return this.fiabilidade;
 }
 
-public int calFiabilidade(){
-
-return (this.fiabilidade * this.getCilindrada())/6000;
-    
-}
+public abstract int calFiabilidade();
 
 public boolean equals(Object obj) {
       if(this == obj) return true; 
@@ -36,7 +32,7 @@ public boolean equals(Object obj) {
       PC2 c = (PC2) obj;
       return super.equals(c);
    }
-public abstract double tempoProximaVolta(Circuitos m, boolean chuva);
+public abstract double tempoProximaVolta(Circuitos m, boolean chuva)throws Exception;
 public abstract String toString();
 public abstract PC2 clone(); 
     

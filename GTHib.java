@@ -1,4 +1,4 @@
- 
+package racing.manager;
 import java.util.Random;
 public class GTHib extends GT implements TrofHibridos
 {
@@ -29,9 +29,9 @@ public class GTHib extends GT implements TrofHibridos
     this.motorelectrico=motor;
     }
     
-    public int calFiabilidade(){//nao acabada
+    public int calFiabilidade(Circuitos c){
 
-        return (80-((numerodevoltas*2)+((3000 - this.getCilindrada)/-300))); //meter numero de voltas;
+        return (80-((c.getNumvoltas()*2)+((3000 - this.getCilindrada())/-300))); 
     }
     
     
@@ -56,11 +56,11 @@ public class GTHib extends GT implements TrofHibridos
      return s.toString();
     }
  
- public double tempoProximaVolta(Circuitos m, boolean chuva){
+ public double tempoProximaVolta(Circuitos m, boolean chuva)throws Exception{
 Random a = new Random();
 double res = 0;
- if(a.nextInt(this.calFiabilidade())==0)//testa fiabilidade
-    res=8888;//valor por omissao caso o carro não conclua a volta
+ if(a.nextInt(this.calFiabilidade(m))==0)//testa fiabilidade
+    throw new Exception();
  else{ 
   res= m.getTmvoltaGT()-((-this.getCilindrada()/250)+ (this.getPotencia()*0.2)+((5-a.nextInt(getP1().getQualidade()))*-4)+a.nextInt(13));
   }
