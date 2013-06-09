@@ -1,4 +1,4 @@
-package racing.manager; 
+  
 import java.util.Random;
 public abstract class PC2 extends Carros
 {

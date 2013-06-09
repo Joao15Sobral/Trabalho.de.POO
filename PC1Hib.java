@@ -1,5 +1,5 @@
 //ver tempo por volta para hibridos  e a gerapc1
- package racing.manager;
+  
 import java.util.Random;
 public class PC1Hib extends PC1 implements TrofHibridos
 {

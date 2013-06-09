@@ -1,4 +1,4 @@
-package racing.manager;
+ 
 
 public interface TrofHibridos
 {

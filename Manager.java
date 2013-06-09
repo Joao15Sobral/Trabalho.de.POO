@@ -1,4 +1,4 @@
-package racing.manager;
+ 
 
 import java.util.HashMap;
 public class Manager

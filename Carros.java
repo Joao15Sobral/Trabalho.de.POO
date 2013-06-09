@@ -1,5 +1,5 @@
 //falta corrigir erro na gera carros,verifica se e hibrido; 
- package racing.manager;
+  
 import java.util.Random;
 public abstract class Carros
 {

@@ -1,5 +1,5 @@
 //ver tempo por volta e a gerapc1, possibilidade de ser abstract,
- package racing.manager;
+  
 import java.util.Random;
 public  abstract class GT extends Carros
 {

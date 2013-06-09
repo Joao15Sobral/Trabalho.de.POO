@@ -1,4 +1,4 @@
-package racing.manager;
+ 
 import java.util.Random;
 public class GTHib extends GT implements TrofHibridos
 {

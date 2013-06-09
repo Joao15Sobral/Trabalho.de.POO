@@ -1,4 +1,4 @@
-package racing.manager;
+ 
 import java.util.HashSet;
 import java.util.Random;
 //falta classificaçao campeonato classificaçao trofeu hibrido, gera campeonato,carrega/guarda,

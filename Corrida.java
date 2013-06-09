@@ -1,4 +1,4 @@
-package racing.manager;
+ 
 // falta faz corrida, classificaçao corrida,
 import java.util.Random;
 import java.util.Iterator;

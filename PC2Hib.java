@@ -1,4 +1,4 @@
-package racing.manager; 
+  
 import java.util.Random;
 public class PC2Hib extends PC2 implements TrofHibridos
 {
